@@ -1,0 +1,109 @@
+@import '../intro/layout.css';
+
+body {
+    background: #E8EAED;
+    color: #4E5B6E;
+    font-family: sf-distant-galaxy;
+}
+
+.container {
+    max-width: 90rem;
+    margin: 0 auto;
+    transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.episode-people {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 1em;
+}
+
+.cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    margin-bottom: 1em;
+    color: #ABB1BA;
+    background: #FFF;
+    border-color: #E5E9F2;
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
+    border-radius: 5px;
+}
+
+.card span {
+    display: block;
+}
+
+.card .card-header {
+    position: relative;
+    height: 5em;
+    width: 5em;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    background-blend-mode: overlay;
+    border-radius: 5px 0 0 5px;
+}
+
+.card .card-title {
+    padding-top: 1em;
+    width: 100%;
+}
+
+.card .card-title h5 {
+    color: #4BD5EE;
+    font-size: 1.2em;
+    line-height: 1.2;
+    padding: 0 1em;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.more-items button {
+    display: block;
+    width: 7em;
+    height: 2.5em;
+    margin: 0 auto;
+    background: #000;
+    border-color: #E5E9F2;
+    color: #FFE300;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .container {
+        max-width: 30rem;
+    }
+
+    .card {
+        width: 30em;
+    }
+}
+
+@media (min-width: 700px) {
+    .card {
+        width: 25em;
+    }
+}
+
+@media (min-width: 980px) {
+    .card {
+        width: 28em;
+    }
+}
