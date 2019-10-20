@@ -44,12 +44,12 @@ body {
     padding: 1em;
 }
 
-span.director, span.release-date,
+.details-value,
 .episode-title h1 {
     color: #FFE300;
 }
 
-span.director-label, span.release-date-label,
+.details-label,
 .episode-title h3 {
     color: #4BD5EE;
 }
@@ -62,7 +62,7 @@ span.director-label, span.release-date-label,
     padding: 1em;
 }
 
-span.director-label, span.release-date-label {
+.details-label {
     margin: 0.5em 0;
 }
 
