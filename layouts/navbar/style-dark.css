@@ -1,0 +1,62 @@
+@import '../intro/layout.css';
+
+body{
+    background: #000;
+    color: #FFE300;
+    font-family: sf-distant-galaxy;
+}
+
+header {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    border-color: #3C4858;
+    background: #333;
+}
+
+.logo {
+    flex: 4;
+    padding: 0 2em;
+}
+
+.titles {
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo > a {
+    text-decoration: none;
+    color: #FFE300;
+}
+
+.item > a {
+    width: 100%;
+    height: auto;
+    color: #4BD5EE;
+    text-decoration: none;
+}
+
+.exit-container {
+    display: block;
+    content: '';
+    background: #3C4858;
+    border-radius: 5px;
+}
+
+.exit-button {
+    width: 25px;
+    height: 25px;
+    background-image: url(./logout.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
