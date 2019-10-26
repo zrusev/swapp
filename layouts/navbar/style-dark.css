@@ -39,6 +39,10 @@ header {
     color: #FFE300;
 }
 
+.logo > a h1 {
+    display: inline-block;
+}
+
 .item > a {
     width: 100%;
     height: auto;

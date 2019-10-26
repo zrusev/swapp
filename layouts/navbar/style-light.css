@@ -27,6 +27,10 @@ header {
     padding: 0 2em;
 }
 
+.logo > a h1 {
+    display: inline-block;
+}
+
 .titles {
     flex: 2;
     display: flex;
