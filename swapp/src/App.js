@@ -1,13 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import './App.css';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './style/globals/theme';
 import { GlobalStyles } from './style/globals/typography';
 import { useDarkMode } from './style/hooks/useDarkMode';
-import Toggle from './views/Toggle/Toggle';
+
+import Navbar from './shared/Navbar/Navbar';
 import LoginComponent from './views/Login/Login';
 
-function App() {
+export const RouteMatcher = () => {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   
@@ -19,11 +22,17 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
-        <LoginComponent theme={themeMode}/>
-        <Toggle toggleTheme={toggleTheme} />
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" render={() => 
+              <LoginComponent theme={themeMode}/>
+            }/>              
+            <Route exact path="/episodes" render={() =>
+              <Navbar theme={themeMode} toggleTheme={toggleTheme} />
+            }/>
+          </Switch>
+        </BrowserRouter>
       </>
     </ThemeProvider>
   );
-}
-
-export default App;
+};

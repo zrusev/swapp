@@ -4,9 +4,9 @@ const ButtonField = styled.button`
     width: 5em;
     height: 2.5em;
     margin-left: auto;
-    background: ${props => props.theme.buttonBackground};
-    border-color: ${props => props.theme.buttonBorderColor};
-    color: ${props => props.theme.buttonFontColor};
+    background: ${({theme: {buttonBackground}}) => buttonBackground};
+    border-color: ${({theme: {buttonBorderColor}}) => buttonBorderColor};
+    color: ${({theme: {buttonFontColor}}) => buttonFontColor};
     border-radius: 5px;
     border-style: none;
     cursor: pointer;

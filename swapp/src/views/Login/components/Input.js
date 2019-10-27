@@ -7,9 +7,9 @@ const InputField = styled.input.attrs(props => ({
     max-width: 100%;
     height: auto;
     text-indent: 10px;
-    background: ${props => props.theme.inputBackground};
-    border-color: ${props => props.theme.inputBorderColor};
-    color: ${props => props.theme.inputFontColor};
+    background: ${({theme: {inputBackground}}) => inputBackground};
+    border-color: ${({theme: {inputBorderColor}}) => inputBorderColor};
+    color: ${({theme: {inputFontColor}}) => inputFontColor};
     border-radius: 5px;
     &:focus {
         background-image: url(${logo});
