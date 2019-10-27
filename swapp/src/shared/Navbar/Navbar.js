@@ -11,34 +11,39 @@ import {
     ExitButton,
 } from './components/_index';
 
-const Navbar = ({ toggleTheme }) => {
+const Navbar = ({ toggleTheme, children }) => {
     return (
-        <Header>
-            <Container>
-                <Logo onClick={toggleTheme}>
-                    <span href='#'>
-                        <h1>SWAPP</h1>
-                    </span>
-                </Logo>
-                <Wrapper>
-                    <Item>
-                        <Link to='/episodes'>
-                            Episodes
-                        </Link>
-                    </Item>
-                    <Item>
-                        <Link to='/characters'>
-                            Characters
-                        </Link>
-                    </Item>
-                    <ExitContainer onClick={() => {}}>
-                        <span>
-                            <ExitButton />
+        <>
+            <Header>
+                <Container>
+                    <Logo onClick={toggleTheme}>
+                        <span href='#'>
+                            <h1>SWAPP</h1>
                         </span>
-                    </ExitContainer>
-                </Wrapper>
-            </Container>
-        </Header>
+                    </Logo>
+                    <Wrapper>
+                        <Item>
+                            <Link to='/episodes'>
+                                Episodes
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to='/characters'>
+                                Characters
+                            </Link>
+                        </Item>
+                        <ExitContainer onClick={() => {}}>
+                            <span>
+                                <ExitButton />
+                            </span>
+                        </ExitContainer>
+                    </Wrapper>
+                </Container>
+            </Header>
+            <main>
+                { children }
+            </main>
+        </>
     )
 }
 

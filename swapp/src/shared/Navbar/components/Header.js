@@ -7,4 +7,5 @@ export const Header = styled.header`
     left: 0;
     width: 100%;
     height: auto;
+    z-index: 1;
 `;

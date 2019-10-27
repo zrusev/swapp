@@ -4,6 +4,7 @@ import { Item } from './Item';
 export const ExitContainer = styled(
     Item
 )`
+    padding: 0;
     display: block;
     content: '';
     cursor: pointer;

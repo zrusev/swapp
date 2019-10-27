@@ -5,3 +5,4 @@ export * from './Title';
 export * from './Summary';
 export * from './Meta';
 export * from './Media';
+export * from './MoreItems';

@@ -10,6 +10,7 @@ export const lightTheme = {
     // Cards
     cardBorderColor: '#E5E9F2',
     cardBackground: '#FFF',
+    cardTitle: '#3C4858',
     // Solid Buttons
     buttonBackground: '#000',
     buttonBorderColor: '#E5E9F2',
@@ -39,6 +40,7 @@ export const darkTheme = {
     // Cards
     cardBorderColor: '#3C4858', 
     cardBackground: '#333',
+    cardTitle: '#4BD5EE',
     // Solid Buttons
     buttonBackground: '#4BD5EE',
     buttonBorderColor: '#4BD5EE',
