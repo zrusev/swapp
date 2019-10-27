@@ -10,7 +10,7 @@ import {
     Button
 } from './components/_index';
 
-const LoginComponent = () => {  
+const Login = () => {  
     return(
         <Wrapper>
             <Container>
@@ -32,4 +32,4 @@ const LoginComponent = () => {
     );
 }
 
-export default LoginComponent;
+export default Login;

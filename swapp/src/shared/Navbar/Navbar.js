@@ -31,7 +31,7 @@ const Navbar = ({ toggleTheme }) => {
                             Characters
                         </Link>
                     </Item>
-                    <ExitContainer>
+                    <ExitContainer onClick={() => {}}>
                         <span>
                             <ExitButton />
                         </span>

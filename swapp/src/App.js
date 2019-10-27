@@ -8,7 +8,8 @@ import { GlobalStyles } from './style/globals/typography';
 import { useDarkMode } from './style/hooks/useDarkMode';
 
 import Navbar from './shared/Navbar/Navbar';
-import LoginComponent from './views/Login/Login';
+import Login from './views/Login/Login';
+import Episodes from './views/Episodes/Episodes';
 
 export const RouteMatcher = () => {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
@@ -25,10 +26,12 @@ export const RouteMatcher = () => {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" render={() => 
-              <LoginComponent theme={themeMode}/>
+              <Login theme={themeMode}/>
             }/>              
             <Route exact path="/episodes" render={() =>
-              <Navbar theme={themeMode} toggleTheme={toggleTheme} />
+                <Episodes />
+              // <Navbar theme={themeMode} toggleTheme={toggleTheme} >
+              // </Navbar>
             }/>
           </Switch>
         </BrowserRouter>

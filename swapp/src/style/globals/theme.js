@@ -8,6 +8,7 @@ export const lightTheme = {
     background: '#E8EAED',
     fontColor: '#4E5B6E',
     // Cards
+    cardBorderColor: '#E5E9F2',
     cardBackground: '#FFF',
     // Solid Buttons
     buttonBackground: '#000',
@@ -22,6 +23,8 @@ export const lightTheme = {
     appBarBorderColor: '#333',
     appBarFontColor: '#4BD5EE',
     appBarExitBackground: '#E8EAED',
+    // Primary Heading
+    primaryHeadingFontColor: '#4BD5EE',
 }
 
 export const darkTheme = {
@@ -32,8 +35,9 @@ export const darkTheme = {
     white: '#FFF',
     // Defaults
     background: '#000',
-    fontColor: '#FFE300',
+    fontColor: '#ABB1BA',
     // Cards
+    cardBorderColor: '#3C4858', 
     cardBackground: '#333',
     // Solid Buttons
     buttonBackground: '#4BD5EE',
@@ -48,4 +52,6 @@ export const darkTheme = {
     appBarBorderColor: '#333',
     appBarFontColor: '#4BD5EE',
     appBarExitBackground: '#3C4858',
+    // Primary Heading
+    primaryHeadingFontColor: '#FFE300',
 }

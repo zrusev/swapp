@@ -6,6 +6,7 @@ export const ExitContainer = styled(
 )`
     display: block;
     content: '';
+    cursor: pointer;
     background: ${({theme: {appBarExitBackground}}) => appBarExitBackground};
     border-radius: 5px;
 `;
