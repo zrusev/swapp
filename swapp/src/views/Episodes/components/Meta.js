@@ -4,7 +4,7 @@ export const Meta = styled.span`
     max-height: 0;
     overflow: hidden;
     color: #3C4858;
-    font-size: 0.78em;
+    font-size: 0.5em;
     text-transform: uppercase;
     position: absolute;
     bottom: 5%;

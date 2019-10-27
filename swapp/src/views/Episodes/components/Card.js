@@ -26,13 +26,14 @@ export const Card = styled(Link)`
     }
 
     @media (min-width: 700px) {
-        max-width: 12em;
+        max-width: 30vw;
         margin-bottom: 3em;
         margin-left: 1.5em;
         margin-right: 1.5em;
     }
 
     @media (min-width: 980px) {
+        max-width: 15vw;
         margin-left: 5em;
         margin-right: 5em;
     }

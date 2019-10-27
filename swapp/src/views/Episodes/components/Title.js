@@ -5,7 +5,7 @@ export const Title = styled.span`
     width: 100%;
 
     color: ${({theme: {primaryHeadingFontColor}}) => primaryHeadingFontColor};
-    font-size: 0.6em;
+    font-size: 0.5em;
     line-height: 1.2;
     padding: 0 1em;
 

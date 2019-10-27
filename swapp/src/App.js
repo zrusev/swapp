@@ -29,9 +29,7 @@ export const RouteMatcher = () => {
               <Login theme={themeMode}/>
             }/>              
             <Route exact path="/episodes" render={() =>
-                <Episodes />
-              // <Navbar theme={themeMode} toggleTheme={toggleTheme} >
-              // </Navbar>
+              <Episodes />
             }/>
           </Switch>
         </BrowserRouter>
