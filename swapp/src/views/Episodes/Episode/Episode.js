@@ -2,7 +2,6 @@ import React from 'react';
 import {
     Container,
     Header,
-    MediaContainer,
     Title,
     Summary,
     Label,

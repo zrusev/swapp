@@ -1,6 +1,5 @@
 export * from './Container';
 export * from './Header';
-export * from './MediaContainer';
 export * from './Title';
 export * from './Summary';
 export * from './Label';
