@@ -4,7 +4,7 @@ import { func } from 'prop-types';
 const Toggle = ({ toggleTheme }) => {
     return (
         <div onClick={toggleTheme}>
-            <a href="javascript:;">
+            <a>
                 <h1>SWAPP</h1>
             </a>
         </div>
