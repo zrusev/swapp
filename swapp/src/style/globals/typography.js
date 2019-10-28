@@ -4,9 +4,9 @@ export const GlobalStyles = createGlobalStyle `
   @import url('../fonts/SfDistantGalaxy-0l3d.ttf');
 
   :root {
-    --font-size-body: 14px;
-    --font-size-body-larger: 18px;
-    --font-size-body-big: 20px;
+    --font-size-body: 12px;
+    --font-size-body-larger: 16px;
+    --font-size-body-big: 18px;
     --font-size-body-huge: 24px; 
 
     --font-size-h1: 2.6em;
@@ -25,18 +25,18 @@ export const GlobalStyles = createGlobalStyle `
 
   html {
     box-sizing: border-box;
-    font-size: var(--font-size-body, 14px)/1.5;
+    font-size: var(--font-size-body, 12px)/1.5;
   }
 
-  @media (min-width: 600px) {
-    html { font-size: var(--font-size-body-larger, 18px) }
+  @media (min-width: 700px) {
+    html { font-size: var(--font-size-body-larger, 16px) }
+  }
+
+  @media (min-width: 980px) {
+      html { font-size: var(--font-size-body-big, 18px) }
   }
 
   @media (min-width: 1024px) {
-      html { font-size: var(--font-size-body-big, 20px) }
-  }
-
-  @media (min-width: 1600px) {
       html { font-size: var(--font-size-body-huge, 24px) }
   }
 

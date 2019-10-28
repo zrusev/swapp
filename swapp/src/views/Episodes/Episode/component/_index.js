@@ -7,3 +7,4 @@ export * from './PeopleWrapper';
 export * from './People';
 export * from './Person';
 export * from './PersonTitle';
+export * from './Media';

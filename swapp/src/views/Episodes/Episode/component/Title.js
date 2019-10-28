@@ -19,8 +19,6 @@ export const Title = styled.span`
     }
 
     @media (min-width: 700px) {
-        padding: 3em 1.5em;
-
         h1 {
             font-size: 1.1em;
         }
@@ -42,11 +40,11 @@ export const Title = styled.span`
 
     @media (min-width: 1024px) {
         h1 {
-            font-size: 1.3em;
+            font-size: 1em;
         }
     
         h3 {
-            font-size: 1em;
+            font-size: 0.8em;
         }
     }
 `;

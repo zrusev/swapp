@@ -11,5 +11,17 @@ export const Person = styled(Link)`
     text-decoration: none;
     box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
     border-radius: 5px;
-    max-width: 14em;
+    width: 12em;
+
+    @media (max-width: 700px) {
+        width: 58vw;
+    }
+
+    @media (min-width: 700px) {
+        width: 30vw;
+    }
+
+    @media (min-width: 980px) {
+        width: 20vw;
+    }
 `;
