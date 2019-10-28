@@ -1,9 +1,6 @@
 import styled from 'styled-components';
-import { Item } from './Item';
 
-export const ExitContainer = styled(
-    Item
-)`
+export const ExitContainer = styled.div`
     padding: 0;
     display: block;
     content: '';

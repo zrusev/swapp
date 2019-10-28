@@ -13,6 +13,11 @@ export const Person = styled(Link)`
     border-radius: 5px;
     width: 12em;
 
+    &:hover,
+    &:focus {
+        box-shadow: rgba(255, 255, 255, 0.45) 0px 0px 10px 0px;
+    }
+
     @media (max-width: 700px) {
         width: 58vw;
     }
