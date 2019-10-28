@@ -5,6 +5,7 @@ export const PersonTitle = styled.span`
     width: 100%;
     text-align: center;
     align-items: center;
+    justify-content: center;
     
     h5 {
         color: ${({theme: {primaryHeadingFontColor}}) => primaryHeadingFontColor};;

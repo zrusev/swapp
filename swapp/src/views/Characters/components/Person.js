@@ -3,11 +3,11 @@ import { Person as EpisodePerson } from '../../Episodes/Episode/component/Person
 
 export const Person = styled(EpisodePerson)`
     @media (max-width: 700px) {
-        width: 90rem;
+        width: 90vw;
     }
 
     @media (min-width: 700px) {
-        width: 20vw;
+        width: 30vw;
     }
 
     @media (min-width: 980px) {

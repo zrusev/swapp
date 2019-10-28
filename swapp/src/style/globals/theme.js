@@ -26,6 +26,9 @@ export const lightTheme = {
     appBarExitBackground: '#E8EAED',
     // Primary Heading
     primaryHeadingFontColor: '#4BD5EE',
+    secondaryHeadingFontColor: '#ABB1BA',
+    // Line Color
+    lineColor: '#ABB1BA',
 }
 
 export const darkTheme = {
@@ -56,4 +59,7 @@ export const darkTheme = {
     appBarExitBackground: '#3C4858',
     // Primary Heading
     primaryHeadingFontColor: '#FFE300',
+    secondaryHeadingFontColor: '#4BD5EE',
+    // Line Color
+    lineColor: '#000',
 }

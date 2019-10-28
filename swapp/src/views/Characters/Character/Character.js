@@ -1,63 +1,96 @@
 import React from 'react';
 
-const React = () => {
+import {
+    Container,
+    Card,
+    Header,
+    Wrapper,
+    Line,
+    People,
+    Media,
+    Details,
+    Title,
+    StarshipMedia,
+    Starship,
+} from './components/_index';
+
+import { 
+    Label,
+    PersonTitle as StarshipTitle,
+} from '../../Episodes/Episode/component/_index';
+
+const Character = () => {
     return (
         <>
-            <div class="title">
+            <Header>
                 <h1>Obi-Wan Kenobi</h1>
-            </div>
-            <div class="container">
-                <div class="person">
-                    <div class="title">
+            </Header>
+            <Container>
+                <Card>
+                    <Title>
                         <h3>Obi-Wan Kenobi</h3>
-                    </div>
-                    <div class="media">
-                        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/obi-wan-show-1567178968.jpg?crop=0.486xw:0.973xh;0.512xw,0.00340xh&resize=480:*" alt="" />
-                    </div>
-                    <div class="details">
-                        <div class="details-label">Height:
-                            <span class="details-value">
+                    </Title>
+                    <Details>
+                        <Media>
+                            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/obi-wan-show-1567178968.jpg?crop=0.486xw:0.973xh;0.512xw,0.00340xh&resize=480:*" alt="" />
+                        </Media>
+                        <Label>Height:&nbsp;
+                            <span>
                                 182
                             </span>
-                        </div>
-                        <div class="details-label">Weight:
-                            <span class="details-value">
+                        </Label>
+                        <Label>Weight:&nbsp;
+                            <span>
                                 77
                             </span>
-                        </div>
-                        <div class="details-label">Species:
-                            <span class="details-value">
+                        </Label>
+                        <Label>Species:&nbsp;
+                            <span>
                                 Human
                             </span>
-                        </div>
-                        <div class="details-label">Home World:
-                            <span class="details-value">
+                        </Label>
+                        <Label>Home World:&nbsp;
+                            <span>
                                 Stewjon
                             </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="ships">
-                    <div class="title">
+                        </Label>
+                    </Details>
+                </Card>
+                <Wrapper>
+                    <Title>
                         <h1>Piloted Starships</h1>
-                    </div>
-                    <hr />
-                    <div class="episode-people">
-                        <div class="cards">
-                            <a class="card" href="javascript:;">
-                                <span class="card-header"
-                                    style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYvNE9TQzL-IG9aGe4CjZr_u6Tw2ErLvGlMSePWurIiGj8ZijbEA);">
-                                </span>
-                                <span class="card-title">
-                                    <h5>Jedi Starfighter</h5>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </Title>
+                    <Line />
+                    <People>
+                        <Starship to="/">
+                            <StarshipMedia>
+                                <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
+                            </StarshipMedia>
+                            <StarshipTitle>
+                                <h5>Anakin Skywalker</h5>
+                            </StarshipTitle>
+                        </Starship>
+                        <Starship to="/">
+                            <StarshipMedia>
+                                <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
+                            </StarshipMedia>
+                            <StarshipTitle>
+                                <h5>Anakin Skywalker</h5>
+                            </StarshipTitle>
+                        </Starship>
+                        <Starship to="/">
+                            <StarshipMedia>
+                                <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
+                            </StarshipMedia>
+                            <StarshipTitle>
+                                <h5>Anakin Skywalker</h5>
+                            </StarshipTitle>
+                        </Starship>
+                    </People>
+                </Wrapper>
+            </Container>
         </>
     )
 }
 
-export default React;
+export default Character;

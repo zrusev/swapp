@@ -12,6 +12,7 @@ import Login from './views/Login/Login';
 import Episodes from './views/Episodes/Episodes';
 import Episode from './views/Episodes/Episode/Episode';
 import Characters from './views/Characters/Characters';
+import Character from './views/Characters/Character/Character';
 
 export const RouteMatcher = () => {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
@@ -43,6 +44,11 @@ export const RouteMatcher = () => {
             <Route exact path="/characters" render={() =>
               <Navbar toggleTheme={toggleTheme}>
                 <Characters />
+            </Navbar>
+            }/>
+            <Route exact path="/character" render={() =>
+              <Navbar toggleTheme={toggleTheme}>
+                <Character />
             </Navbar>
             }/>
           </Switch>

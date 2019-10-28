@@ -7,4 +7,12 @@ export const Label = styled.div`
     span {
         color: ${({theme: {primaryHeadingFontColor}}) => primaryHeadingFontColor};
     }
+
+    h1 {
+        font-size: 1em;
+    }
+
+    h3 {
+        font-size: 0.8em;
+    }   
 `;
