@@ -20,9 +20,17 @@ const Login = () => {
                 <FormWrapper>
                     <Form>
                         <WarningBar>Invalid Credentials!</WarningBar>
-                        <Input inputType='text' placeholder="email"/>
-                        <Input inputType='password' placeholder="password"/>
-                        <Button type="submit">
+                        <Input 
+                            inputType='text' 
+                            placeholder="email"
+                        />
+                        <Input 
+                            inputType='password' 
+                            placeholder="password"
+                        />
+                        <Button 
+                            type="submit"
+                        >
                             <b>Login</b>
                         </Button>
                     </Form>

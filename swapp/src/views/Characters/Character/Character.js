@@ -6,7 +6,7 @@ import {
     Header,
     Wrapper,
     Line,
-    People,
+    StarShips,
     Media,
     Details,
     Title,
@@ -61,7 +61,7 @@ const Character = () => {
                         <h1>Piloted Starships</h1>
                     </Title>
                     <Line />
-                    <People>
+                    <StarShips>
                         <Starship to="/">
                             <StarshipMedia>
                                 <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
@@ -86,7 +86,7 @@ const Character = () => {
                                 <h5>Anakin Skywalker</h5>
                             </StarshipTitle>
                         </Starship>
-                    </People>
+                    </StarShips>
                 </Wrapper>
             </Container>
         </>

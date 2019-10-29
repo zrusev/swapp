@@ -13,6 +13,7 @@ import Episodes from './views/Episodes/Episodes';
 import Episode from './views/Episodes/Episode/Episode';
 import Characters from './views/Characters/Characters';
 import Character from './views/Characters/Character/Character';
+import StarShips from './views/StarShips/StarShips';
 
 export const RouteMatcher = () => {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
@@ -31,26 +32,23 @@ export const RouteMatcher = () => {
             <Route exact path="/" render={() => 
               <Login theme={themeMode}/>
             }/>              
-            <Route exact path="/episodes" render={() =>
-              <Navbar toggleTheme={toggleTheme}>
-                <Episodes />
-              </Navbar>
-            }/>
-            <Route exact path="/episode" render={() =>
-              <Navbar toggleTheme={toggleTheme}>
-                <Episode />
+            <Navbar toggleTheme={toggleTheme}>
+              <Route exact path="/episodes" render={() =>
+                  <Episodes />
+              }/>
+              <Route exact path="/episode" render={() =>
+                  <Episode />
+              }/>
+              <Route exact path="/characters" render={() =>
+                  <Characters />
+              }/>
+              <Route exact path="/character" render={() =>
+                  <Character />
+              }/>
+              <Route exact path="/starships" render={() =>
+                  <StarShips />
+              }/>
             </Navbar>
-            }/>
-            <Route exact path="/characters" render={() =>
-              <Navbar toggleTheme={toggleTheme}>
-                <Characters />
-            </Navbar>
-            }/>
-            <Route exact path="/character" render={() =>
-              <Navbar toggleTheme={toggleTheme}>
-                <Character />
-            </Navbar>
-            }/>
           </Switch>
         </BrowserRouter>
       </>
