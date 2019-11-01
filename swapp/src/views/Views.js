@@ -6,7 +6,7 @@ import Episodes from './Episodes/Episodes';
 import Episode from './Episodes/Episode/Episode';
 import Characters from './Characters/Characters';
 import Character from './Characters/Character/Character';
-import Starships from './Starships/Starships';
+import Starships from './Starships/Starship/Starship';
 
 const Views = () => {
     return (

@@ -19,39 +19,57 @@ import {
     PersonTitle as StarshipTitle,
 } from '../../Episodes/Episode/component/_index';
 
-const CharacterPreview = () => {
+import ReactImageFallback from "react-image-fallback";
+import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
+
+const StarshipCard = ({id, name, image}) => (
+    <Starship to={`/${id}`}>
+        <StarshipMedia>
+            <ReactImageFallback
+                src={image} 
+                fallbackImage={fallbackImg}
+                alt={`${name}_image`}
+            />
+        </StarshipMedia>
+        <StarshipTitle>
+            <h5>{name}</h5>
+        </StarshipTitle>
+    </Starship>
+);
+
+const CharacterPreview = ({character: {id, name, image, height, mass, species, homeworld, starships}}) => {
     return (
         <>
             <Header>
-                <h1>Obi-Wan Kenobi</h1>
+                <h1>{name}</h1>
             </Header>
             <Container>
                 <Card>
                     <Title>
-                        <h3>Obi-Wan Kenobi</h3>
+                        <h3>{name}</h3>
                     </Title>
                     <Details>
                         <Media>
-                            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/obi-wan-show-1567178968.jpg?crop=0.486xw:0.973xh;0.512xw,0.00340xh&resize=480:*" alt="" />
+                            <img src={image} alt="person_image" />
                         </Media>
                         <Label>Height:&nbsp;
                             <span>
-                                182
+                                {height}
                             </span>
                         </Label>
                         <Label>Weight:&nbsp;
                             <span>
-                                77
+                                {mass}
                             </span>
                         </Label>
                         <Label>Species:&nbsp;
                             <span>
-                                Human
+                                {species.name}
                             </span>
                         </Label>
                         <Label>Home World:&nbsp;
                             <span>
-                                Stewjon
+                                {homeworld.name}
                             </span>
                         </Label>
                     </Details>
@@ -62,30 +80,15 @@ const CharacterPreview = () => {
                     </Title>
                     <Line />
                     <StarShips>
-                        <Starship to="/">
-                            <StarshipMedia>
-                                <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                            </StarshipMedia>
-                            <StarshipTitle>
-                                <h5>Anakin Skywalker</h5>
-                            </StarshipTitle>
-                        </Starship>
-                        <Starship to="/">
-                            <StarshipMedia>
-                                <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                            </StarshipMedia>
-                            <StarshipTitle>
-                                <h5>Anakin Skywalker</h5>
-                            </StarshipTitle>
-                        </Starship>
-                        <Starship to="/">
-                            <StarshipMedia>
-                                <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                            </StarshipMedia>
-                            <StarshipTitle>
-                                <h5>Anakin Skywalker</h5>
-                            </StarshipTitle>
-                        </Starship>
+                        {
+                            starships.edges.map(({node: starship}) => 
+                                <StarshipCard 
+                                    key={starship.id}
+                                    id={starship.id}
+                                    name={starship.name}
+                                    image={starship.image}
+                            />)
+                        }
                     </StarShips>
                 </Wrapper>
             </Container>

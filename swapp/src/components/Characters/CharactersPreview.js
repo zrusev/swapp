@@ -6,76 +6,41 @@ import {
     People,
 } from './components/_index';
 
-import {
-    PersonTitle,
-} from '../Episodes/Episode/component/_index';
+import { PersonTitle } from '../Episodes/Episode/component/_index';
+import { MoreItems } from '../Episodes/components/_index';
 
-import { 
-    MoreItems
-} from '../Episodes/components/_index';
+import ReactImageFallback from "react-image-fallback";
+import fallbackImg from '../Episodes/Episode/assets//anonymous_mask_PNG28.png';
 
+const PersonCard = ({id, name, image}) => (
+    <Person to={`/${id}`}>
+        <Media>
+            <ReactImageFallback
+                src={image} 
+                fallbackImage={fallbackImg}
+                alt={`${name}_image`}
+            />
+        </Media>
+        <PersonTitle>
+            <h5>{name}</h5>
+        </PersonTitle>
+    </Person>
+);
 
-const CharactersPreview = () => {  
+const CharactersPreview = ({characters: people}) => {  
     return(
         <>
             <Container>
                 <People>
-                    <Person to="/">
-                        <Media>
-                            <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                        </Media>
-                        <PersonTitle>
-                            <h5>Anakin Skywalker</h5>
-                        </PersonTitle>
-                    </Person>
-                    <Person to="/">
-                        <Media>
-                            <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                        </Media>
-                        <PersonTitle>
-                            <h5>Anakin Skywalker</h5>
-                        </PersonTitle>
-                    </Person>
-                    <Person to="/">
-                        <Media>
-                            <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                        </Media>
-                        <PersonTitle>
-                            <h5>Anakin Skywalker</h5>
-                        </PersonTitle>
-                    </Person>
-                    <Person to="/">
-                        <Media>
-                            <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                        </Media>
-                        <PersonTitle>
-                            <h5>Anakin Skywalker</h5>
-                        </PersonTitle>
-                    </Person>
-                    <Person to="/">
-                        <Media>
-                            <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                        </Media>
-                        <PersonTitle>
-                            <h5>Anakin Skywalker</h5>
-                        </PersonTitle>
-                    </Person>
-                    <Person to="/">
-                        <Media>
-                            <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                        </Media>
-                        <PersonTitle>
-                            <h5>Anakin Skywalker</h5>
-                        </PersonTitle>
-                    </Person>
-                    <Person to="/">
-                        <Media>
-                            <img src={"https://fsmedia.imgix.net/eb/d1/19/f1/9a64/4b2d/8471/d02314b53684/obi-wan-kenobi-in-the-original-star-wars.jpeg?crop=edges&fit=crop&auto=compress&h=1200&w=1200"} alt="" />
-                        </Media>
-                        <PersonTitle>
-                            <h5>Anakin Skywalker</h5>
-                        </PersonTitle>
-                    </Person>
+                    {
+                        people.edges.map(({node: person}) => 
+                            <PersonCard 
+                                key={person.id}
+                                id={person.id}
+                                name={person.name}
+                                image={person.image}
+                        />)
+                    }
                 </People>
             </Container>
             <MoreItems>

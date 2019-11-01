@@ -13,11 +13,11 @@ import {
     Media,
     Details,
     Title,
-} from '../Characters/Character/components/_index';
+} from '../../Characters/Character/components/_index';
 
 import { 
     Label,
-} from '../Episodes/Episode/component/_index';
+} from '../../Episodes/Episode/component/_index';
 
 const dummy = [
   {
@@ -42,44 +42,59 @@ const dummy = [
   }
 ];
 
-const StarShipsPreview = () => (
+const StarshipPreview = ({starship: 
+        {name, 
+         model, 
+         image, 
+         starshipClass, 
+         cost, 
+         maxAtmosphericSpeed, 
+         maxMLPerHour, 
+         hyperdriveRating, 
+         crew}
+    }) => (
     <>
         <Header>
-            <h1>Jedi starfighter</h1>
-            <h3>(Delta-7 Aethersprite-class interceptor)</h3>
+            <h1>{name}</h1>
+            <h3>({model})</h3>
         </Header>
         <Container>
             <Card>
                 <Title>
-                    <h3>Jedi starfighter</h3>
+                    <h3>{name}</h3>
                 </Title>
                 <Details>
                     <Media>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYvNE9TQzL-IG9aGe4CjZr_u6Tw2ErLvGlMSePWurIiGj8ZijbEA" alt="" />
+                        <img src={image} alt={`${name}_image`} />
                     </Media>
                     <Label>Class:&nbsp;
                         <span>
-                            Starfighter
+                            {starshipClass}
                         </span>
                     </Label>
                     <Label>Cost:&nbsp;
                         <span>
-                            180000 credits
+                            {cost} credits
                         </span>
                     </Label>
                     <Label>Crew:&nbsp;
                         <span>
-                            1
+                            {crew}
                         </span>
                     </Label>
                     <Label>Max Atmospheric Speed:&nbsp;
                         <span>
-                            1153
+                            {maxAtmosphericSpeed}
                         </span>
                     </Label>
+                    <Label>Max ML per Hour:&nbsp;
+                        <span>
+                            {maxMLPerHour}
+                        </span>
+                    </Label>                    
                     <Label>Hyperdrive Rating:&nbsp;
                         <span>
-                            1
+                            {hyperdriveRating}
                         </span>
                     </Label>
                 </Details>
@@ -96,4 +111,4 @@ const StarShipsPreview = () => (
     </>
 );
 
-export default StarShipsPreview;
+export default StarshipPreview;

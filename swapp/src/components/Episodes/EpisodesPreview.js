@@ -12,7 +12,7 @@ import {
 } from './components/_index';
 
 const EpisodeCard = ({id, image, title, openingCrawl, releaseDate}) => (
-    <Card to='/{id}'>
+    <Card to={`/${id}`}>
         <Media>
             <img src={image} alt="episode_image" />
         </Media>

@@ -12,12 +12,18 @@ import {
     Media,
 } from './component/_index';
 
+import ReactImageFallback from "react-image-fallback";
+import fallbackImg from './assets/anonymous_mask_PNG28.png';
 import { MoreItems } from '../components/_index';
 
 const PersonCard = ({name, image}) => (
     <Person to="/">
         <Media>
-            <img src={image} alt="person_image" />
+            <ReactImageFallback
+                src={image} 
+                fallbackImage={fallbackImg}
+                alt={`${name}_image`}
+            />
         </Media>
         <PersonTitle>
             <h5>{name}</h5>
