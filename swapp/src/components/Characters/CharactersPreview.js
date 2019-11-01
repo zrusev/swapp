@@ -1,31 +1,10 @@
 import React from 'react';
-import { 
-    Container,
-    Person,
-    Media,
-    People,
-} from './components/_index';
+import PropTypes from 'prop-types';
 
-import { PersonTitle } from '../Episodes/Episode/component/_index';
+import { Container, People } from './components/_index';
 import { MoreItems } from '../Episodes/components/_index';
 
-import ReactImageFallback from "react-image-fallback";
-import fallbackImg from '../Episodes/Episode/assets//anonymous_mask_PNG28.png';
-
-const PersonCard = ({id, name, image}) => (
-    <Person to={`/${id}`}>
-        <Media>
-            <ReactImageFallback
-                src={image} 
-                fallbackImage={fallbackImg}
-                alt={`${name}_image`}
-            />
-        </Media>
-        <PersonTitle>
-            <h5>{name}</h5>
-        </PersonTitle>
-    </Person>
-);
+import CharactersPreviewCard from './CharactersPreviewCard';
 
 const CharactersPreview = ({characters: people}) => {  
     return(
@@ -34,7 +13,7 @@ const CharactersPreview = ({characters: people}) => {
                 <People>
                     {
                         people.edges.map(({node: person}) => 
-                            <PersonCard 
+                            <CharactersPreviewCard 
                                 key={person.id}
                                 id={person.id}
                                 name={person.name}
@@ -50,6 +29,18 @@ const CharactersPreview = ({characters: people}) => {
             </MoreItems>
         </>
     );
+}
+
+CharactersPreview.propTypes = {
+    characters: PropTypes.exact({
+    edges: PropTypes.arrayOf(PropTypes.exact({
+            node: PropTypes.exact({
+                id: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+                image: PropTypes.string.isRequired,
+            }).isRequired,
+        })).isRequired,
+    }).isRequired,
 }
 
 export default CharactersPreview;

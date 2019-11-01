@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
     Container,
@@ -10,32 +11,10 @@ import {
     Media,
     Details,
     Title,
-    StarshipMedia,
-    Starship,
 } from './components/_index';
+import { Label } from '../../Episodes/Episode/component/_index';
 
-import { 
-    Label,
-    PersonTitle as StarshipTitle,
-} from '../../Episodes/Episode/component/_index';
-
-import ReactImageFallback from "react-image-fallback";
-import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
-
-const StarshipCard = ({id, name, image}) => (
-    <Starship to={`/${id}`}>
-        <StarshipMedia>
-            <ReactImageFallback
-                src={image} 
-                fallbackImage={fallbackImg}
-                alt={`${name}_image`}
-            />
-        </StarshipMedia>
-        <StarshipTitle>
-            <h5>{name}</h5>
-        </StarshipTitle>
-    </Starship>
-);
+import CharacterPreviewCard from './CharacterPreviewCard';
 
 const CharacterPreview = ({character: {id, name, image, height, mass, species, homeworld, starships}}) => {
     return (
@@ -53,24 +32,16 @@ const CharacterPreview = ({character: {id, name, image, height, mass, species, h
                             <img src={image} alt="person_image" />
                         </Media>
                         <Label>Height:&nbsp;
-                            <span>
-                                {height}
-                            </span>
+                            <span>{height}</span>
                         </Label>
                         <Label>Weight:&nbsp;
-                            <span>
-                                {mass}
-                            </span>
+                            <span>{mass}</span>
                         </Label>
                         <Label>Species:&nbsp;
-                            <span>
-                                {species.name}
-                            </span>
+                            <span>{species.name}</span>
                         </Label>
                         <Label>Home World:&nbsp;
-                            <span>
-                                {homeworld.name}
-                            </span>
+                            <span>{homeworld.name}</span>
                         </Label>
                     </Details>
                 </Card>
@@ -82,7 +53,7 @@ const CharacterPreview = ({character: {id, name, image, height, mass, species, h
                     <StarShips>
                         {
                             starships.edges.map(({node: starship}) => 
-                                <StarshipCard 
+                                <CharacterPreviewCard 
                                     key={starship.id}
                                     id={starship.id}
                                     name={starship.name}
@@ -94,6 +65,31 @@ const CharacterPreview = ({character: {id, name, image, height, mass, species, h
             </Container>
         </>
     )
+}
+
+CharacterPreview.propTypes = {
+    character: PropTypes.exact({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired, 
+        height: PropTypes.number.isRequired, 
+        mass: PropTypes.number.isRequired, 
+        species: PropTypes.exact({
+            name: PropTypes.string.isRequired,
+        }).isRequired,
+        homeworld: PropTypes.exact({
+            name: PropTypes.string.isRequired,
+        }).isRequired, 
+        starships: PropTypes.exact({
+            edges: PropTypes.arrayOf(PropTypes.exact({
+                node: PropTypes.exact({
+                    id: PropTypes.string.isRequired,
+                    name: PropTypes.string.isRequired,
+                    image: PropTypes.string.isRequired,
+                }).isRequired
+            })).isRequired,
+        }).isRequired,
+    }).isRequired,
 }
 
 export default CharacterPreview;

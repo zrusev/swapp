@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
     Wrapper as RadarWrapper,
@@ -15,9 +16,7 @@ import {
     Title,
 } from '../../Characters/Character/components/_index';
 
-import { 
-    Label,
-} from '../../Episodes/Episode/component/_index';
+import { Label } from '../../Episodes/Episode/component/_index';
 
 const dummy = [
   {
@@ -43,7 +42,8 @@ const dummy = [
 ];
 
 const StarshipPreview = ({starship: 
-        {name, 
+        {id,
+         name, 
          model, 
          image, 
          starshipClass, 
@@ -68,34 +68,22 @@ const StarshipPreview = ({starship:
                         <img src={image} alt={`${name}_image`} />
                     </Media>
                     <Label>Class:&nbsp;
-                        <span>
-                            {starshipClass}
-                        </span>
+                        <span>{starshipClass}</span>
                     </Label>
                     <Label>Cost:&nbsp;
-                        <span>
-                            {cost} credits
-                        </span>
+                        <span>{cost} credits</span>
                     </Label>
                     <Label>Crew:&nbsp;
-                        <span>
-                            {crew}
-                        </span>
+                        <span>{crew}</span>
                     </Label>
                     <Label>Max Atmospheric Speed:&nbsp;
-                        <span>
-                            {maxAtmosphericSpeed}
-                        </span>
+                        <span>{maxAtmosphericSpeed}</span>
                     </Label>
                     <Label>Max ML per Hour:&nbsp;
-                        <span>
-                            {maxMLPerHour}
-                        </span>
+                        <span>{maxMLPerHour}</span>
                     </Label>                    
                     <Label>Hyperdrive Rating:&nbsp;
-                        <span>
-                            {hyperdriveRating}
-                        </span>
+                        <span>{hyperdriveRating}</span>
                     </Label>
                 </Details>
             </Card>
@@ -110,5 +98,20 @@ const StarshipPreview = ({starship:
         </Container>
     </>
 );
+
+StarshipPreview.propTypes = {
+    starship: PropTypes.exact({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired, 
+        model: PropTypes.string.isRequired, 
+        image: PropTypes.string.isRequired, 
+        starshipClass: PropTypes.string.isRequired, 
+        cost: PropTypes.number, 
+        maxAtmosphericSpeed: PropTypes.number, 
+        maxMLPerHour: PropTypes.number, 
+        hyperdriveRating: PropTypes.number, 
+        crew: PropTypes.number,
+    }).isRequired,
+}
 
 export default StarshipPreview;

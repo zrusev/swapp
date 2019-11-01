@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
     Container,
     Header,
@@ -7,31 +9,13 @@ import {
     Label,
     PeopleWrapper,
     People,
-    Person,
-    PersonTitle,
     Media,
 } from './component/_index';
-
-import ReactImageFallback from "react-image-fallback";
-import fallbackImg from './assets/anonymous_mask_PNG28.png';
 import { MoreItems } from '../components/_index';
 
-const PersonCard = ({name, image}) => (
-    <Person to="/">
-        <Media>
-            <ReactImageFallback
-                src={image} 
-                fallbackImage={fallbackImg}
-                alt={`${name}_image`}
-            />
-        </Media>
-        <PersonTitle>
-            <h5>{name}</h5>
-        </PersonTitle>
-    </Person>
-);
+import EpisodePreviewCard from './EpisodePreviewCard';
 
-const EpisodePreview = ({episode: {image, director, title, openingCrawl, releaseDate, people}}) => (
+const EpisodePreview = ({episode: {episodeId, director, image, title, openingCrawl, releaseDate, people}}) => (
     <>
         <Container>
             <Header>
@@ -57,7 +41,7 @@ const EpisodePreview = ({episode: {image, director, title, openingCrawl, release
                 <People>
                     {
                         people.edges.map(({node: person}) => 
-                            <PersonCard 
+                            <EpisodePreviewCard 
                                 key={person.id}
                                 name={person.name}
                                 image={person.image}
@@ -73,5 +57,25 @@ const EpisodePreview = ({episode: {image, director, title, openingCrawl, release
         </MoreItems>
     </>
 );
+
+EpisodePreview.propTypes = {
+    episode: PropTypes.exact({
+        episodeId: PropTypes.number.isRequired, 
+        image: PropTypes.string.isRequired, 
+        director: PropTypes.string.isRequired, 
+        title: PropTypes.string.isRequired, 
+        openingCrawl: PropTypes.string.isRequired, 
+        releaseDate: PropTypes.string.isRequired, 
+        people: PropTypes.exact({
+            edges: PropTypes.arrayOf(PropTypes.exact({
+                node: PropTypes.exact({
+                    id: PropTypes.string.isRequired,
+                    name: PropTypes.string.isRequired,
+                    image: PropTypes.string.isRequired,
+                }).isRequired,
+            })).isRequired,
+        }).isRequired,
+    }).isRequired,
+}
 
 export default EpisodePreview;

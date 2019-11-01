@@ -1,32 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
     Container,
     Wrapper,
-    Card,
-    Summary,
-    Title,
-    Meta,
-    Media,
     MoreItems,
 } from './components/_index';
 
-const EpisodeCard = ({id, image, title, openingCrawl, releaseDate}) => (
-    <Card to={`/${id}`}>
-        <Media>
-            <img src={image} alt="episode_image" />
-        </Media>
-        <Title>
-            <h3>{title}</h3>
-        </Title>
-        <Summary>
-            {openingCrawl}
-        </Summary>
-        <Meta className="meta-data">
-            Released Date: {releaseDate}
-        </Meta>
-    </Card>
-);
+import EpisodesPreviewCard from './EpisodesPreviewCard';
 
 const EpisodesPreview = ({episodes}) => {
     return (
@@ -35,7 +16,7 @@ const EpisodesPreview = ({episodes}) => {
                 <Wrapper>
                     {
                         episodes.edges.map(({node: episode}) => 
-                            <EpisodeCard 
+                            <EpisodesPreviewCard 
                                 key={episode.episodeId}
                                 id={episode.id}
                                 episodeId={episode.episodeId}
@@ -56,5 +37,9 @@ const EpisodesPreview = ({episodes}) => {
         </>
     )
 };
+
+EpisodesPreview.propTypes = {
+    episodes: PropTypes.object.isRequired,
+}
 
 export default EpisodesPreview;
