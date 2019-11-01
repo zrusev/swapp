@@ -57,5 +57,6 @@ export const GlobalStyles = createGlobalStyle `
     font-family: 'sf-distant-galaxy';
     background: ${({ theme: { background } }) => background};
     color: ${({ theme: { fontColor } }) => fontColor};
+    transition: all 0.25s linear;
   }
 `

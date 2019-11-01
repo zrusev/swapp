@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import { CSSTransition } from "react-transition-group";
 import HamburgerMenu from 'react-hamburger-menu';
 import { withTheme } from 'styled-components';
 
+import ThemeToggle from './ThemeToggle';
+
 import {
     Header,
-    Logo,
     Wrapper,
     ExitContainer,
     ExitButton,
@@ -15,7 +16,7 @@ import {
     Link,
 } from './components/_index';
 
-const Navbar = ({theme: {primaryHeadingFontColor}, toggleTheme, children }) => {   
+const Navbar = ({theme: {primaryHeadingFontColor}, children }) => {   
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -37,9 +38,9 @@ const Navbar = ({theme: {primaryHeadingFontColor}, toggleTheme, children }) => {
     return (
         <>
             <Header>
-                <Logo onClick={toggleTheme}>
+                <ThemeToggle>
                     <span>SWAPP</span>
-                </Logo>
+                </ThemeToggle>
                 <CSSTransition
                     in={!isSmallScreen || isNavVisible}
                     timeout={350}
@@ -85,7 +86,8 @@ const Navbar = ({theme: {primaryHeadingFontColor}, toggleTheme, children }) => {
 }
 
 Navbar.propTypes = {
-    toggleTheme: func.isRequired,
+    theme: PropTypes.object.isRequired,
+    children: PropTypes.array.isRequired,
 }
 
 export default withTheme(Navbar);
