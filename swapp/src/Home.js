@@ -1,6 +1,6 @@
 import React from 'react';
-import Pages from './Pages';
-import Login from './Login/Login';
+import Views from './views/Views';
+import Login from './views/Login/Login';
 
 const Home = () => {
     const isAuthenticated = true;
@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
             {
-                isAuthenticated ? <Pages /> : <Login />
+                isAuthenticated ? <Views /> : <Login />
             }
         </>
     )

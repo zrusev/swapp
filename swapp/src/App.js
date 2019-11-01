@@ -4,7 +4,7 @@ import './App.css';
 
 import { EnhancedThemeProvider } from './style/contexts/themeContext';
 import { GlobalStyles } from './style/globals/typography';
-import Home from './views/Home';
+import Home from './Home';
 
 const App = () => (
   <Router>

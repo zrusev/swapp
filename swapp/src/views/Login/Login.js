@@ -1,43 +1,11 @@
 import React from 'react';
-import { 
-    Wrapper, 
-    Container, 
-    Title, 
-    FormWrapper,
-    Form, 
-    WarningBar, 
-    Input, 
-    Button
-} from './components/_index';
+import LoginPreview from '../../components/Login/LoginPreview';
 
-const Login = () => {  
-    return(
-        <Wrapper>
-            <Container>
-                <Title>
-                    <h1>SWAPP</h1>
-                </Title>
-                <FormWrapper>
-                    <Form>
-                        <WarningBar>Invalid Credentials!</WarningBar>
-                        <Input 
-                            inputType='text' 
-                            placeholder="email"
-                        />
-                        <Input 
-                            inputType='password' 
-                            placeholder="password"
-                        />
-                        <Button 
-                            type="submit"
-                        >
-                            <b>Login</b>
-                        </Button>
-                    </Form>
-                </FormWrapper>
-            </Container>
-        </Wrapper>
-    );
+const Login = () => {
+
+    return (
+        <LoginPreview />
+    )
 }
 
 export default Login;
