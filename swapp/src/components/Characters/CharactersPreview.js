@@ -6,7 +6,12 @@ import { MoreItems } from '../Episodes/components/_index';
 
 import CharactersPreviewCard from './CharactersPreviewCard';
 
-const CharactersPreview = ({characters: people}) => {  
+const CharactersPreview = ({
+    characters: people, 
+    hasNextPage, 
+    totalCount, 
+    loadMoreCharacters
+}) => {  
     return(
         <>
             <Container>
@@ -18,15 +23,22 @@ const CharactersPreview = ({characters: people}) => {
                                 id={person.id}
                                 name={person.name}
                                 image={person.image}
-                        />)
+                            />
+                        )
                     }
                 </People>
             </Container>
-            <MoreItems>
-                <button type="submit">
-                    <b>Load More</b>
-                </button>
-            </MoreItems>
+            {
+                hasNextPage &&
+                    <MoreItems>
+                        <button 
+                            type="submit"
+                            onClick={loadMoreCharacters}
+                        >
+                            <b>Load More</b>
+                        </button>
+                    </MoreItems>
+            }
         </>
     );
 }
