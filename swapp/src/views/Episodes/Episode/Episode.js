@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import EpisodePreview from '../../../components/Episodes/Episode/EpisodePreview'
 
 const Episode = () => {
@@ -59,6 +60,8 @@ const Episode = () => {
           }
         }
       }
+    
+    const { episodeId } = useParams();
 
     return (
         <EpisodePreview episode={episode.data.episode} />

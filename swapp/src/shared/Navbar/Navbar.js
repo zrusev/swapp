@@ -1,39 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { withTheme } from 'styled-components';
+import useNavbar from './hooks/useNavbar';
 import { CSSTransition } from "react-transition-group";
 import HamburgerMenu from 'react-hamburger-menu';
-import { withTheme } from 'styled-components';
 
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import ExitButton from '../ExitButton/ExitButton';
 
 import {
     Header,
     Wrapper,
-    ExitContainer,
-    ExitButton,
     Hamburger,
     NavAnimation,
     Link,
 } from './components/_index';
 
-const Navbar = ({theme: {primaryHeadingFontColor}, children }) => {   
-    const [isNavVisible, setNavVisibility] = useState(false);
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia('(max-width: 700px)');
-
-        mediaQuery.addListener(handleMediaQueryChange);
-        handleMediaQueryChange(mediaQuery); 
-
-        return () => mediaQuery.removeListener(handleMediaQueryChange);
-    }, []);
-
-    const handleMediaQueryChange = mediaQuery => mediaQuery.matches 
-        ? setIsSmallScreen(true) 
-        : setIsSmallScreen(false);
-
-    const toggleNav = () => setNavVisibility(!isNavVisible);
+const Navbar = ({
+    theme: {primaryHeadingFontColor}, 
+    logoutHandler, 
+    children 
+}) => {
+    const {isNavVisible, isSmallScreen, toggleNav} = useNavbar();
 
     return (
         <>
@@ -56,11 +44,7 @@ const Navbar = ({theme: {primaryHeadingFontColor}, children }) => {
                                 <Link to='/characters'>
                                     Characters
                                 </Link>
-                                <ExitContainer onClick={() => {}}>
-                                    <span>
-                                        <ExitButton />
-                                    </span>
-                                </ExitContainer>
+                                <ExitButton action={logoutHandler} />
                             </Wrapper>
                         </NavAnimation>}               
                 </CSSTransition>

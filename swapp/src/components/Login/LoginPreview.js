@@ -11,7 +11,11 @@ import {
     Button
 } from './components/_index';
 
-const LoginPreview = () => {  
+import useSignInForm from './hooks/useSignInForm';
+
+const LoginPreview = ({login}) => {  
+    const {inputs, handleInputChange, handleSubmit} = useSignInForm(login);
+
     return(
         <Wrapper>
             <Container>
@@ -19,15 +23,23 @@ const LoginPreview = () => {
                     <h1>SWAPP</h1>
                 </Title>
                 <FormWrapper>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <WarningBar>Invalid Credentials!</WarningBar>
                         <Input 
                             inputType='text' 
                             placeholder="email"
+                            name="email" 
+                            onChange={handleInputChange} 
+                            value={inputs.email} 
+                            required 
                         />
                         <Input 
                             inputType='password' 
                             placeholder="password"
+                            name="password" 
+                            onChange={handleInputChange} 
+                            value={inputs.password} 
+                            required 
                         />
                         <Button 
                             type="submit"

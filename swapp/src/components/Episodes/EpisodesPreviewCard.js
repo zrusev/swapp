@@ -10,7 +10,7 @@ import {
 } from './components/_index';
 
 const EpisodesPreviewCard = ({id, image, title, openingCrawl, releaseDate}) => (
-    <Card to={`/${id}`}>
+    <Card to={`/episodes/${id}`}>
         <Media>
             <img src={image} alt="episode_image" />
         </Media>

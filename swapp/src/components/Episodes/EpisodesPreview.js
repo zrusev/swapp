@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {
     Container,
     Wrapper,
-    MoreItems,
 } from './components/_index';
 
 import EpisodesPreviewCard from './EpisodesPreviewCard';
@@ -29,11 +28,6 @@ const EpisodesPreview = ({episodes}) => {
                     }
                 </Wrapper>
             </Container>
-            <MoreItems>
-                <button type="submit">
-                    <b>Load More</b>
-                </button>
-            </MoreItems>
         </>
     )
 };
