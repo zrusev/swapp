@@ -10,8 +10,8 @@ import {
 import ReactImageFallback from "react-image-fallback";
 import fallbackImg from './assets/anonymous_mask_PNG28.png';
 
-const EpisodePreviewCard = ({name, image}) => (
-    <Person to="/">
+const EpisodePreviewCard = ({id, name, image}) => (
+    <Person  to={`/characters/${id}`}>
         <Media>
             <ReactImageFallback
                 src={image} 
@@ -27,6 +27,7 @@ const EpisodePreviewCard = ({name, image}) => (
 );
 
 EpisodePreviewCard.propTypes = {
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
 }

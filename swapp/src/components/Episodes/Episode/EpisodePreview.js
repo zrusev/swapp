@@ -42,6 +42,7 @@ const EpisodePreview = ({episode: {episodeId, director, image, title, openingCra
                         people.edges.map(({node: person}) => 
                             <EpisodePreviewCard 
                                 key={person.id}
+                                id={person.id}
                                 name={person.name}
                                 image={person.image}
                         />)

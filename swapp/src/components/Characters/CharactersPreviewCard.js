@@ -9,10 +9,10 @@ import {
 import { PersonTitle } from '../Episodes/Episode/component/_index';
 
 import ReactImageFallback from "react-image-fallback";
-import fallbackImg from '../Episodes/Episode/assets//anonymous_mask_PNG28.png';
+import fallbackImg from '../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
 const CharactersPreviewCard = ({id, name, image}) => (
-    <Person to={`/${id}`}>
+    <Person to={`/characters/${id}`}>
         <Media>
             <ReactImageFallback
                 src={image} 

@@ -12,7 +12,7 @@ import ReactImageFallback from "react-image-fallback";
 import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
 const CharacterPreviewCard = ({id, name, image}) => (
-    <Starship to={`/${id}`}>
+    <Starship to={`/starships/${id}`}>
         <StarshipMedia>
             <ReactImageFallback
                 src={image} 

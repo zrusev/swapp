@@ -1,42 +1,40 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import StarshipPreview from '../../../components/Starships/StarshipPreview/StarshipPreview'
 
-const Starships = () => {
-    // const query = `
-    // {
-    //   starship(id: "starships.59") {
-    //     id
-    //     name
-    //     model
-    //     image
-    //     starshipClass
-    //     cost
-    //     maxAtmosphericSpeed
-    //     maxMLPerHour
-    //     hyperdriveRating
-    //     crew
-    //   }
-    // }`
+import gql from 'graphql-tag.macro';
+import { useQuery } from '@apollo/react-hooks';
 
-    const starship = {
-      "data": {
-        "starship": {
-          "id": "starships.59",
-          "name": "Trade Federation cruiser",
-          "model": "Providence-class carrier/destroyer",
-          "image": "https://pm1.narvii.com/6852/c789a6a9f099f3ce22fb1bb3d58976412216c30fv2_128.jpg",
-          "starshipClass": "capital ship",
-          "cost": 125000000,
-          "maxAtmosphericSpeed": 1050,
-          "maxMLPerHour": null,
-          "hyperdriveRating": 1.5,
-          "crew": 600
-        }
+const STARSHIP_QUERY = gql`
+    query Starship($starshipId: ID!) {
+      starship(id: $starshipId) {
+        id
+        name
+        model
+        image
+        starshipClass
+        cost
+        maxAtmosphericSpeed
+        maxMLPerHour
+        hyperdriveRating
+        crew
       }
     }
+`;
+
+const Starships = () => {
+    const { starshipId } = useParams();
+    const { data, loading, error } = useQuery(STARSHIP_QUERY, {
+      variables: { starshipId }
+    });
+
+    if (loading) return (<div style={{color: 'white', margin: '5em' }}>Loading...</div>);
+    if (error) return (<div style={{color: 'white', margin: '5em' }}>{error.message}</div>);
+
+    const { starship } = data;
 
     return (
-        <StarshipPreview starship={starship.data.starship}/>
+        <StarshipPreview starship={starship}/>
     )
 }
 

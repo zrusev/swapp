@@ -13,8 +13,10 @@ import {
     Title,
 } from './components/_index';
 import { Label } from '../../Episodes/Episode/component/_index';
-
 import CharacterPreviewCard from './CharacterPreviewCard';
+
+import ReactImageFallback from "react-image-fallback";
+import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
 const CharacterPreview = ({character: {id, name, image, height, mass, species, homeworld, starships}}) => {
     return (
@@ -29,7 +31,12 @@ const CharacterPreview = ({character: {id, name, image, height, mass, species, h
                     </Title>
                     <Details>
                         <Media>
-                            <img src={image} alt="person_image" />
+                        <ReactImageFallback
+                            src={image} 
+                            fallbackImage={fallbackImg}
+                            initialImage={fallbackImg}
+                            alt={`${name}_image`}
+                        />
                         </Media>
                         <Label>Height:&nbsp;
                             <span>{height}</span>
@@ -58,7 +65,8 @@ const CharacterPreview = ({character: {id, name, image, height, mass, species, h
                                     id={starship.id}
                                     name={starship.name}
                                     image={starship.image}
-                            />)
+                                />
+                            )
                         }
                     </StarShips>
                 </Wrapper>
