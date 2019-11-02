@@ -23,9 +23,8 @@ const EpisodePreview = ({episode: {episodeId, director, image, title, openingCra
                     <img src={image} alt="" />
                 </Media>
                 <Title>
-                    {title}
-                    <h1>Star Wars: The last jedi</h1>
-                    <h3>Attack of the clones</h3>
+                    <h1>Star Wars: Episode</h1>
+                    <h3>{title}</h3>
                 </Title>
             </Header>
             <Summary>

@@ -14,6 +14,7 @@ const Views = () => {
 
     const logoutHandler = () => {
         localStorage.removeItem('token');
+        client.cache.reset();
         client.writeData({ data: { authenticated: false } });
     };
 

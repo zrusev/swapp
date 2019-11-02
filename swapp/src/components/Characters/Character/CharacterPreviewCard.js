@@ -17,6 +17,7 @@ const CharacterPreviewCard = ({id, name, image}) => (
             <ReactImageFallback
                 src={image} 
                 fallbackImage={fallbackImg}
+                initialImage={fallbackImg}
                 alt={`${name}_image`}
             />
         </StarshipMedia>

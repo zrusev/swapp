@@ -16,6 +16,7 @@ const EpisodePreviewCard = ({name, image}) => (
             <ReactImageFallback
                 src={image} 
                 fallbackImage={fallbackImg}
+                initialImage={fallbackImg}
                 alt={`${name}_image`}
             />
         </Media>
