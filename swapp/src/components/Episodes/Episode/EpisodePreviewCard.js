@@ -7,7 +7,7 @@ import {
     Media,
 } from './component/_index';
 
-import ReactImageFallback from '../../../shared/hocs/imageFallback';
+import ReactImageFallback from '../../../shared/components/ImageFallback/ImageFallback';
 import fallbackImg from './assets/anonymous_mask_PNG28.png';
 
 const EpisodePreviewCard = ({id, name, image}) => (

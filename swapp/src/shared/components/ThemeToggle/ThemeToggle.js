@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Logo } from './components/_index';
-import { ThemeContext } from '../../style/contexts/themeContext';
+import { ThemeContext } from '../../../style/contexts/themeContext';
 
 const ThemeToggle = ({children}) => {
     const { toggleTheme } = useContext(ThemeContext);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import EpisodePreview from '../../../components/Episodes/Episode/EpisodePreview'
-import Spinner from '../../../shared/Spinner/Spinner';
+import Spinner from '../../../shared/components/Spinner/Spinner';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';

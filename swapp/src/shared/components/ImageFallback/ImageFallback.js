@@ -1,4 +1,4 @@
 import ReactImageFallback from 'react-image-fallback'
-import withUnsafeLifecycleMethods  from './withUnsafeLifecycleMethods';
+import withUnsafeLifecycleMethods  from '../../hocs/withUnsafeLifecycleMethods';
 
 export default withUnsafeLifecycleMethods(ReactImageFallback);

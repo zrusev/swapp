@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useApolloClient } from '@apollo/react-hooks';
 
-import Navbar from '../shared/Navbar/Navbar';
+import Navbar from '../shared/components/Navbar/Navbar';
 import Episodes from './Episodes/Episodes';
 import Episode from './Episodes/Episode/Episode';
 import Characters from './Characters/Characters';

@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginPreview from '../../components/Login/LoginPreview';
-import Spinner from '../../shared/Spinner/Spinner';
+import Spinner from '../../shared/components/Spinner/Spinner';
 
 import gql from 'graphql-tag.macro';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';

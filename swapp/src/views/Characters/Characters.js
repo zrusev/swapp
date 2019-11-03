@@ -1,6 +1,6 @@
 import React from 'react';
-import CharactersPreview from '../../components/Characters/CharactersPreview'
-import Spinner from '../../shared/Spinner/Spinner';
+import CharactersPreview from '../../components/Characters/CharactersPreview';
+import Spinner from '../../shared/components/Spinner/Spinner';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';

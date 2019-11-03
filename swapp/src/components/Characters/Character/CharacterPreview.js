@@ -15,7 +15,7 @@ import {
 import { Label } from '../../Episodes/Episode/component/_index';
 import CharacterPreviewCard from './CharacterPreviewCard';
 
-import ReactImageFallback from '../../../shared/hocs/imageFallback';
+import ReactImageFallback from '../../../shared/components/ImageFallback/ImageFallback';
 import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
 const CharacterPreview = ({character: {id, name, image, height, mass, species, homeworld, starships}}) => {

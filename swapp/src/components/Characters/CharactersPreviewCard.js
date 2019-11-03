@@ -8,7 +8,7 @@ import {
 
 import { PersonTitle } from '../Episodes/Episode/component/_index';
 
-import ReactImageFallback from '../../shared/hocs/imageFallback';
+import ReactImageFallback from '../../shared/components/ImageFallback/ImageFallback';
 import fallbackImg from '../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
 const CharactersPreviewCard = ({id, name, image}) => (
