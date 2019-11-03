@@ -78,18 +78,22 @@ const EpisodePreview = ({
 
 EpisodePreview.propTypes = {
     episode: PropTypes.exact({
-        episodeId: PropTypes.number.isRequired, 
-        image: PropTypes.string.isRequired, 
-        director: PropTypes.string.isRequired, 
-        title: PropTypes.string.isRequired, 
-        openingCrawl: PropTypes.string.isRequired, 
-        releaseDate: PropTypes.string.isRequired, 
+        episodeId: PropTypes.number, 
+        image: PropTypes.string, 
+        director: PropTypes.string, 
+        title: PropTypes.string, 
+        openingCrawl: PropTypes.string, 
+        releaseDate: PropTypes.string, 
         people: PropTypes.exact({
+            pageInfo: PropTypes.exact({
+                hasNextPage: PropTypes.bool.isRequired,
+                endCursor: PropTypes.string,
+            }).isRequired,
             edges: PropTypes.arrayOf(PropTypes.exact({
                 node: PropTypes.exact({
                     id: PropTypes.string.isRequired,
                     name: PropTypes.string.isRequired,
-                    image: PropTypes.string.isRequired,
+                    image: PropTypes.string,
                 }).isRequired,
             })).isRequired,
         }).isRequired,

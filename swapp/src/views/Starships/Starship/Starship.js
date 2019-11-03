@@ -34,7 +34,9 @@ const Starships = () => {
     const { starship } = data;
 
     return (
-        <StarshipPreview starship={starship}/>
+        <StarshipPreview
+          starship={starship}
+        />
     )
 }
 

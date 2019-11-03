@@ -71,20 +71,32 @@ const StarshipPreview = ({starship:
                         <span>{starshipClass}</span>
                     </Label>
                     <Label>Cost:&nbsp;
-                        <span>{cost} credits</span>
+                        <span>{(cost === undefined || cost === null) ? 0 : cost} credits</span>
                     </Label>
-                    <Label>Crew:&nbsp;
-                        <span>{crew}</span>
-                    </Label>
-                    <Label>Max Atmospheric Speed:&nbsp;
-                        <span>{maxAtmosphericSpeed}</span>
-                    </Label>
-                    <Label>Max ML per Hour:&nbsp;
-                        <span>{maxMLPerHour}</span>
-                    </Label>                    
-                    <Label>Hyperdrive Rating:&nbsp;
-                        <span>{hyperdriveRating}</span>
-                    </Label>
+                    {
+                        crew  &&
+                            <Label>Crew:&nbsp;
+                                <span>{crew}</span>
+                            </Label>
+                    }
+                    {
+                        maxAtmosphericSpeed && 
+                            <Label>Max Atmospheric Speed:&nbsp;
+                                <span>{maxAtmosphericSpeed}</span>
+                            </Label>
+                    }
+                    {
+                        maxMLPerHour && 
+                            <Label>Max ML per Hour:&nbsp;
+                                <span>{maxMLPerHour}</span>
+                            </Label>                    
+                    }
+                    {
+                        hyperdriveRating && 
+                            <Label>Hyperdrive Rating:&nbsp;
+                                <span>{hyperdriveRating}</span>
+                            </Label>
+                    }
                 </Details>
             </Card>
             <Wrapper>
@@ -103,10 +115,10 @@ StarshipPreview.propTypes = {
     starship: PropTypes.exact({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired, 
-        model: PropTypes.string.isRequired, 
-        image: PropTypes.string.isRequired, 
-        starshipClass: PropTypes.string.isRequired, 
-        cost: PropTypes.number, 
+        model: PropTypes.string, 
+        image: PropTypes.string, 
+        starshipClass: PropTypes.string, 
+        cost: PropTypes.number,
         maxAtmosphericSpeed: PropTypes.number, 
         maxMLPerHour: PropTypes.number, 
         hyperdriveRating: PropTypes.number, 

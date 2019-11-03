@@ -28,10 +28,10 @@ const EpisodesPreviewCard = ({id, image, title, openingCrawl, releaseDate}) => (
 
 EpisodesPreviewCard.propTypes = {
     id: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    openingCrawl: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    title: PropTypes.string,
+    openingCrawl: PropTypes.string,
+    releaseDate: PropTypes.string,
 }
 
 export default EpisodesPreviewCard;

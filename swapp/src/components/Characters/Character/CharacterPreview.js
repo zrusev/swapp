@@ -15,7 +15,7 @@ import {
 import { Label } from '../../Episodes/Episode/component/_index';
 import CharacterPreviewCard from './CharacterPreviewCard';
 
-import ReactImageFallback from "react-image-fallback";
+import ReactImageFallback from '../../../shared/hocs/imageFallback';
 import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
 const CharacterPreview = ({character: {id, name, image, height, mass, species, homeworld, starships}}) => {
@@ -45,10 +45,10 @@ const CharacterPreview = ({character: {id, name, image, height, mass, species, h
                             <span>{mass}</span>
                         </Label>
                         <Label>Species:&nbsp;
-                            <span>{species.name}</span>
+                            <span>{species && species.name}</span>
                         </Label>
                         <Label>Home World:&nbsp;
-                            <span>{homeworld.name}</span>
+                            <span>{homeworld && homeworld.name}</span>
                         </Label>
                     </Details>
                 </Card>
@@ -79,24 +79,24 @@ CharacterPreview.propTypes = {
     character: PropTypes.exact({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired, 
-        height: PropTypes.number.isRequired, 
-        mass: PropTypes.number.isRequired, 
+        image: PropTypes.string, 
+        height: PropTypes.number, 
+        mass: PropTypes.number, 
         species: PropTypes.exact({
             name: PropTypes.string.isRequired,
-        }).isRequired,
+        }),
         homeworld: PropTypes.exact({
             name: PropTypes.string.isRequired,
-        }).isRequired, 
+        }), 
         starships: PropTypes.exact({
             edges: PropTypes.arrayOf(PropTypes.exact({
                 node: PropTypes.exact({
                     id: PropTypes.string.isRequired,
                     name: PropTypes.string.isRequired,
-                    image: PropTypes.string.isRequired,
+                    image: PropTypes.string,
                 }).isRequired
             })).isRequired,
-        }).isRequired,
+        }),
     }).isRequired,
 }
 

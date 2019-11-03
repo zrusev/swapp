@@ -7,7 +7,7 @@ import {
     Media,
 } from './component/_index';
 
-import ReactImageFallback from "react-image-fallback";
+import ReactImageFallback from '../../../shared/hocs/imageFallback';
 import fallbackImg from './assets/anonymous_mask_PNG28.png';
 
 const EpisodePreviewCard = ({id, name, image}) => (
@@ -29,7 +29,7 @@ const EpisodePreviewCard = ({id, name, image}) => (
 EpisodePreviewCard.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
 }
 
 export default EpisodePreviewCard;
