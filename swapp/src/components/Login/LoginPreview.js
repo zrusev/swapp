@@ -13,7 +13,7 @@ import {
 
 import useSignInForm from './hooks/useSignInForm';
 
-const LoginPreview = ({login}) => {  
+const LoginPreview = ({login, error}) => {  
     const {inputs, handleInputChange, handleSubmit} = useSignInForm(login);
 
     return(
@@ -24,7 +24,10 @@ const LoginPreview = ({login}) => {
                 </Title>
                 <FormWrapper>
                     <Form onSubmit={handleSubmit}>
-                        <WarningBar>Invalid Credentials!</WarningBar>
+                        {
+                            error &&
+                                <WarningBar>{error}</WarningBar>                         
+                        }
                         <Input 
                             inputType='text' 
                             placeholder="email"
