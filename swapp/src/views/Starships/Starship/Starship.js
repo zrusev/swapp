@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import StarshipPreview from '../../../components/Starships/StarshipPreview/StarshipPreview'
+import Spinner from '../../../shared/Spinner/Spinner';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
@@ -28,7 +29,7 @@ const Starships = () => {
       variables: { starshipId }
     });
 
-    if (loading) return (<div style={{color: 'white', margin: '5em' }}>Loading...</div>);
+    if(loading) return <Spinner />;
     if (error) return (<div style={{color: 'white', margin: '5em' }}>{error.message}</div>);
 
     const { starship } = data;

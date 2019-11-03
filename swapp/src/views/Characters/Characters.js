@@ -1,5 +1,6 @@
 import React from 'react';
 import CharactersPreview from '../../components/Characters/CharactersPreview'
+import Spinner from '../../shared/Spinner/Spinner';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
@@ -26,7 +27,7 @@ const ALL_CHARACTERS = gql`
 const Characters = () => {
     const { data, loading, error, fetchMore } = useQuery(ALL_CHARACTERS);
       
-    if(loading) return (<div style={{color: 'white', margin: '5em' }}>Loading...</div>);
+    if(loading) return <Spinner />;
     if(error) return (<div style={{color: 'white', margin: '5em' }}>{error.message}</div>);
 
     const { 

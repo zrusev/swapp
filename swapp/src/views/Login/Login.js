@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginPreview from '../../components/Login/LoginPreview';
+import Spinner from '../../shared/Spinner/Spinner';
 
 import gql from 'graphql-tag.macro';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
@@ -22,7 +23,7 @@ const Login = () => {
       },
     });
 
-    if(loading) return (<div>Loading...</div>);
+    if(loading) return <Spinner />;
     if(error) return (<div>{error.message}</div>);
 
     return (
