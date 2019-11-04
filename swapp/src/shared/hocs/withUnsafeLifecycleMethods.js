@@ -5,29 +5,30 @@ const UNSAFE_LIFECYCLE_METHOD_NAMES = [
   'componentWillReceiveProps',
   'componentWillUpdate',
 ];
-  
-const withUnsafeLifecycleMethods = (WrappedComponent) => {
-    const hocComponent = props => {
-        const { prototype } = WrappedComponent;
 
-        UNSAFE_LIFECYCLE_METHOD_NAMES.forEach((methodName) => {
-          if (!prototype[methodName]) return;
-      
-          Object.defineProperty(prototype, `UNSAFE_${methodName}`, {
-            configurable: true,
-            value: prototype[methodName],
-            writable: true,
-          });
-      
-          Reflect.deleteProperty(prototype, methodName);
-        });
+const withUnsafeLifecycleMethods = WrappedComponent => {
+  const hocComponent = props => {
+    const { prototype } = WrappedComponent;
 
-        return <WrappedComponent {...props} />
-    }
+    UNSAFE_LIFECYCLE_METHOD_NAMES.forEach(methodName => {
+      if (!prototype[methodName]) return;
 
-    hocComponent.displayName = `withUnsafeLifecycleMethods(${WrappedComponent.displayName || ''})`;
+      Object.defineProperty(prototype, `UNSAFE_${methodName}`, {
+        configurable: true,
+        value: prototype[methodName],
+        writable: true,
+      });
 
-    return hocComponent;
-}
+      Reflect.deleteProperty(prototype, methodName);
+    });
+
+    return <WrappedComponent {...props} />;
+  };
+
+  hocComponent.displayName = `withUnsafeLifecycleMethods(${WrappedComponent.displayName ||
+    ''})`;
+
+  return hocComponent;
+};
 
 export default withUnsafeLifecycleMethods;

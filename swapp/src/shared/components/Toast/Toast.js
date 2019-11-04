@@ -15,31 +15,28 @@ const kf = keyframes`
 `;
 
 const Container = styled.div`
-    position: fixed;
-    bottom: 2vh;
-    left: 1vw;
-    border-radius: 4px;
-    box-shadow: #310808 2px 2px 7px;
-    background-color: ${({theme: {background}}) => background};
-    padding: 0.5em;
-    color: ${({theme: {primaryHeadingFontColor}}) => primaryHeadingFontColor};
-    
-    opacity:1;
-    animation: ${kf} 500ms cubic-bezier(.23,.82,.16,1.46);
-    animation-iteration-count: 1;
+  position: fixed;
+  bottom: 2vh;
+  left: 1vw;
+  border-radius: 4px;
+  box-shadow: #310808 2px 2px 7px;
+  background-color: ${({ theme: { background } }) => background};
+  padding: 0.5em;
+  color: ${({ theme: { primaryHeadingFontColor } }) => primaryHeadingFontColor};
+
+  opacity: 1;
+  animation: ${kf} 500ms cubic-bezier(0.23, 0.82, 0.16, 1.46);
+  animation-iteration-count: 1;
 `;
 
-const Toast = ({children}) =>  (
-    <Container>
-        <p>{children}</p>
-    </Container>
+const Toast = ({ children }) => (
+  <Container>
+    <p>{children}</p>
+  </Container>
 );
 
 Toast.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-  ])
-}
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+};
 
 export default Toast;

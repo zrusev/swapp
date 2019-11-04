@@ -7,48 +7,45 @@ import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
 
 const CHARACTER_QUERY = gql`
-  query Character ($characterId: ID!)  {
-      person(id: $characterId) {
-        id
+  query Character($characterId: ID!) {
+    person(id: $characterId) {
+      id
+      name
+      image
+      height
+      mass
+      species {
         name
-        image
-        height
-        mass
-        species {
-          name
-        }
-        homeworld {
-          name
-        }
-        starships(first: 100) {
-          edges {
-            node {
-                id
-                name
-                image
-            }
+      }
+      homeworld {
+        name
+      }
+      starships(first: 100) {
+        edges {
+          node {
+            id
+            name
+            image
           }
         }
       }
     }
+  }
 `;
 
 const Character = () => {
-    const { characterId } = useParams();
-    const { data, loading, error } = useQuery(CHARACTER_QUERY, {
-      variables: { characterId }
-    });
+  const { characterId } = useParams();
+  const { data, loading, error } = useQuery(CHARACTER_QUERY, {
+    variables: { characterId },
+  });
 
-    if(loading) return <Spinner />;
-    if (error) return (<div style={{color: 'white', margin: '5em' }}>{error.message}</div>);
+  if (loading) return <Spinner />;
+  if (error)
+    return <div style={{ color: 'white', margin: '5em' }}>{error.message}</div>;
 
-    const { person } = data;
+  const { person } = data;
 
-    return (
-        <CharacterPreview
-          character={person}
-        />
-    )
-}
+  return <CharacterPreview character={person} />;
+};
 
 export default Character;

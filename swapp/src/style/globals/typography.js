@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle `
+export const GlobalStyles = createGlobalStyle`
   @import url('../fonts/SfDistantGalaxy-0l3d.ttf');
 
   :root {
@@ -59,4 +59,4 @@ export const GlobalStyles = createGlobalStyle `
     color: ${({ theme: { fontColor } }) => fontColor};
     transition: all 0.25s linear;
   }
-`
+`;

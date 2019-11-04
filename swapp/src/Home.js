@@ -11,15 +11,11 @@ export const AUTHENTICATED_QUERY = gql`
 `;
 
 const Home = () => {
-    const { data: {authenticated} } = useQuery(AUTHENTICATED_QUERY);
+  const {
+    data: { authenticated },
+  } = useQuery(AUTHENTICATED_QUERY);
 
-    return (
-        <>
-            {
-                authenticated ? <Views /> : <Login />
-            }
-        </>
-    )
-}
+  return <>{authenticated ? <Views /> : <Login />}</>;
+};
 
 export default Home;

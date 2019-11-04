@@ -7,21 +7,21 @@ import { lightTheme, darkTheme } from '../globals/themes';
 export const ThemeContext = createContext(null);
 ThemeContext.displayName = 'ThemeContext';
 
-export const EnhancedThemeProvider = ({children}) => {
-    const [theme, toggleTheme, componentMounted] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
-    
-    if(!componentMounted) return <div />;
+export const EnhancedThemeProvider = ({ children }) => {
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
-    return(
-        <ThemeProvider theme={themeMode}>
-            <ThemeContext.Provider value={{toggleTheme}}>
-                {children}
-            </ThemeContext.Provider>
-        </ThemeProvider>
-    )
-}
+  if (!componentMounted) return <div />;
+
+  return (
+    <ThemeProvider theme={themeMode}>
+      <ThemeContext.Provider value={{ toggleTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    </ThemeProvider>
+  );
+};
 
 EnhancedThemeProvider.propTypes = {
-    children: PropTypes.object.isRequired,
-}
+  children: PropTypes.object.isRequired,
+};
