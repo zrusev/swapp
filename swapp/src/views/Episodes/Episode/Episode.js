@@ -6,6 +6,8 @@ import Spinner from '../../../shared/components/Spinner/Spinner';
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
 
+const STEP = 5;
+
 const EPISODE_QUERY = gql`
     query Episode($episodeId: ID!, $first: Int!, $after: String) {
       episode(id: $episodeId) {
@@ -37,7 +39,7 @@ const Episode = () => {
     const { data, loading, error, fetchMore } = useQuery(EPISODE_QUERY, {
       variables: { 
         episodeId,
-        first: 5
+        first: STEP
       }
     });
 
@@ -52,7 +54,7 @@ const Episode = () => {
     const loadMoreCharacters = () => {
       fetchMore({
         variables: {
-          first: 5,
+          first: STEP,
           after: endCursor,
         },
         updateQuery: (prev, { fetchMoreResult: { episode } } ) => {

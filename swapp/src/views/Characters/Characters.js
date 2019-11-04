@@ -5,8 +5,10 @@ import Spinner from '../../shared/components/Spinner/Spinner';
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
 
+const STEP = 12;
+
 const ALL_CHARACTERS = gql`
-  query AllCharacters($first: Int! = 12, $after: String) {
+  query AllCharacters($first: Int!, $after: String) {
     allPeople(first: $first, after: $after) {
       pageInfo {
         hasNextPage
@@ -25,7 +27,11 @@ const ALL_CHARACTERS = gql`
 `;
 
 const Characters = () => {
-    const { data, loading, error, fetchMore } = useQuery(ALL_CHARACTERS);
+    const { data, loading, error, fetchMore } = useQuery(ALL_CHARACTERS, {
+      variables: {
+        first: STEP,
+      }
+    });
       
     if(loading) return <Spinner />;
     if(error) return (<div style={{color: 'white', margin: '5em' }}>{error.message}</div>);
@@ -41,7 +47,7 @@ const Characters = () => {
     const loadMoreCharacters = () => {
       fetchMore({
         variables: {
-          first: 12,
+          first: STEP,
           after: endCursor,
         },
         updateQuery: (prev, { fetchMoreResult: { allPeople } }) => {         
@@ -61,7 +67,7 @@ const Characters = () => {
 
     return (
         <CharactersPreview 
-          characters={allPeople} 
+          allPeople={allPeople} 
           hasNextPage={hasNextPage}
           totalCount={totalCount}
           loadMoreCharacters={loadMoreCharacters}

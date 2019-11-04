@@ -30,7 +30,7 @@ const CharactersPreviewCard = ({id, name, image}) => (
 CharactersPreviewCard.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
 }
 
 export default CharactersPreviewCard;

@@ -17,6 +17,8 @@ import {
 } from '../../Characters/Character/components/_index';
 
 import { Label } from '../../Episodes/Episode/component/_index';
+import ReactImageFallback from '../../../shared/components/ImageFallback/ImageFallback';
+import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
 const dummy = [
   {
@@ -51,11 +53,15 @@ const StarshipPreview = ({starship:
          maxAtmosphericSpeed, 
          maxMLPerHour, 
          hyperdriveRating, 
-         crew}
+         crew},
+         allStarships: {
+            totalCount
+         }
     }) => (
     <>
         <Header>
             <h1>{name}</h1>
+            <h3>{totalCount}</h3>
             <h3>({model})</h3>
         </Header>
         <Container>
@@ -65,7 +71,12 @@ const StarshipPreview = ({starship:
                 </Title>
                 <Details>
                     <Media>
-                        <img src={image} alt={`${name}_image`} />
+                        <ReactImageFallback
+                            src={image} 
+                            fallbackImage={fallbackImg}
+                            initialImage={fallbackImg}
+                            alt={`${name}_image`}
+                        />
                     </Media>
                     <Label>Class:&nbsp;
                         <span>{starshipClass}</span>

@@ -31,12 +31,12 @@ const CharacterPreview = ({character: {id, name, image, height, mass, species, h
                     </Title>
                     <Details>
                         <Media>
-                        <ReactImageFallback
-                            src={image} 
-                            fallbackImage={fallbackImg}
-                            initialImage={fallbackImg}
-                            alt={`${name}_image`}
-                        />
+                            <ReactImageFallback
+                                src={image} 
+                                fallbackImage={fallbackImg}
+                                initialImage={fallbackImg}
+                                alt={`${name}_image`}
+                            />
                         </Media>
                         <Label>Height:&nbsp;
                             <span>{height}</span>

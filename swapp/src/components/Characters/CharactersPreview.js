@@ -7,7 +7,7 @@ import { MoreItems } from '../Episodes/components/_index';
 import CharactersPreviewCard from './CharactersPreviewCard';
 
 const CharactersPreview = ({
-    characters: people, 
+    allPeople: people, 
     hasNextPage, 
     totalCount, 
     loadMoreCharacters
@@ -44,15 +44,18 @@ const CharactersPreview = ({
 }
 
 CharactersPreview.propTypes = {
-    characters: PropTypes.exact({
-    edges: PropTypes.arrayOf(PropTypes.exact({
-            node: PropTypes.exact({
-                id: PropTypes.string.isRequired,
-                name: PropTypes.string.isRequired,
-                image: PropTypes.string.isRequired,
-            }).isRequired,
-        })).isRequired,
-    }).isRequired,
+    hasNextPage: PropTypes.bool.isRequired,
+    totalCount: PropTypes.number.isRequired,
+    people: PropTypes.exact({
+        edges: PropTypes.arrayOf(PropTypes.exact({
+                node: PropTypes.exact({
+                    id: PropTypes.string.isRequired,
+                    name: PropTypes.string.isRequired,
+                    image: PropTypes.string,
+                }).isRequired,
+            })).isRequired,
+    }),
+    loadMoreCharacters: PropTypes.func.isRequired,
 }
 
 export default CharactersPreview;
