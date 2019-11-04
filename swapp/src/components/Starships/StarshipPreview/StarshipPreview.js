@@ -54,14 +54,10 @@ const StarshipPreview = ({starship:
          maxMLPerHour, 
          hyperdriveRating, 
          crew},
-         allStarships: {
-            totalCount
-         }
     }) => (
     <>
         <Header>
             <h1>{name}</h1>
-            <h3>{totalCount}</h3>
             <h3>({model})</h3>
         </Header>
         <Container>

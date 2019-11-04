@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import { withTheme } from 'styled-components';
 import { ResponsiveRadar } from '@nivo/radar';
 
@@ -56,5 +58,11 @@ const RadarChart = ({theme: {primaryHeadingFontColor}, data}) => {
         />
     );
 };
+
+RadarChart.propTypes = {
+    theme: PropTypes.object.isRequired,
+    primaryHeadingFontColor: PropTypes.string,
+    data: PropTypes.any,
+}
 
 export const Radar = withTheme(RadarChart);

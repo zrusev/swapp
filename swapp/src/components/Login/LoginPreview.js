@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { 
     Wrapper, 
@@ -54,6 +55,11 @@ const LoginPreview = ({login, error}) => {
             </Container>
         </Wrapper>
     );
+}
+
+LoginPreview.propTypes = {
+    login: PropTypes.func.isRequired,
+    error: PropTypes.string,
 }
 
 export default LoginPreview;

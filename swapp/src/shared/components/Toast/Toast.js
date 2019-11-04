@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 
 const kf = keyframes`
@@ -33,5 +34,12 @@ const Toast = ({children}) =>  (
         <p>{children}</p>
     </Container>
 );
+
+Toast.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ])
+}
 
 export default Toast;

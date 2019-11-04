@@ -72,6 +72,7 @@ const Navbar = ({
 Navbar.propTypes = {
     theme: PropTypes.object.isRequired,
     children: PropTypes.array.isRequired,
+    logoutHandler: PropTypes.func.isRequired,
 }
 
 export default withTheme(Navbar);

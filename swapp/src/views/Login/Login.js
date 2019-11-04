@@ -25,11 +25,11 @@ const Login = () => {
       onError: ({ graphQLErrors, networkError }) => {
         if (graphQLErrors) {
             graphQLErrors.map(({ message }) => setError(message));
-        };
+        }
     
         if (networkError) {
             setError(networkError.message);
-        };       
+        }       
       },
     });
 

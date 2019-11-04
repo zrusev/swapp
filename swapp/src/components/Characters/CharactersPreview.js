@@ -46,6 +46,7 @@ const CharactersPreview = ({
 CharactersPreview.propTypes = {
     hasNextPage: PropTypes.bool.isRequired,
     totalCount: PropTypes.number.isRequired,
+    allPeople: PropTypes.object.isRequired,
     people: PropTypes.exact({
         edges: PropTypes.arrayOf(PropTypes.exact({
                 node: PropTypes.exact({

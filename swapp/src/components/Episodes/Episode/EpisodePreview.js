@@ -98,6 +98,8 @@ EpisodePreview.propTypes = {
             })).isRequired,
         }).isRequired,
     }).isRequired,
+    hasNextPage: PropTypes.bool.isRequired,
+    loadMoreCharacters: PropTypes.func.isRequired,
 }
 
 export default EpisodePreview;

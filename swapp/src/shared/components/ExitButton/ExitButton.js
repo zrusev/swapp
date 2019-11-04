@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
     ExitContainer,
@@ -12,5 +13,9 @@ const ExitButton = ({action}) => (
         </span>
     </ExitContainer>
 );
+
+ExitButton.propTypes = {
+    action: PropTypes.func.isRequired,
+}
 
 export default ExitButton;
