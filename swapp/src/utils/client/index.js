@@ -6,9 +6,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { typeDefs } from './local';
 import authLink from './auth';
 
-const errorLink = onError(error =>
-  console.log(`Following error detected: ${error}`),
-);
+const errorLink = onError(error => console.log(error));
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
