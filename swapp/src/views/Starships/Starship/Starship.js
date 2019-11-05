@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import StarshipPreview from '../../../components/Starships/StarshipPreview/StarshipPreview';
 import Spinner from '../../../shared/components/Spinner/Spinner';
+import Toast from '../../../shared/components/Toast/Toast';
+import errorHandler from '../../../shared/resolvers/errorHandler';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
@@ -43,7 +45,7 @@ const STATS_QUERY = gql`
 const Starships = () => {
   const { starshipId } = useParams();
 
-  const { data, loading: loadingData, errorData } = useQuery(STARSHIP_QUERY, {
+  const { data, loading: loadingData, error: errorData } = useQuery(STARSHIP_QUERY, {
     variables: { starshipId },
   });
 
@@ -61,10 +63,8 @@ const Starships = () => {
   );
 
   if (loadingData || loadingStats) return <Spinner />;
-  if (errorData || errorStats)
-    return (
-      <div style={{ color: 'white', margin: '5em' }}>{errorData.message}</div>
-    );
+  if (errorData) return <Toast>{errorHandler(errorData)}</Toast>;
+  if (errorStats) return <Toast>{errorHandler(errorStats)}</Toast>;
 
   const { starship } = data;
   const { allStarships } = stats;
