@@ -22,6 +22,7 @@ const client = new ApolloClient({
   cache,
   link,
   typeDefs,
+  resolvers: {},
 });
 
 cache.writeData({
