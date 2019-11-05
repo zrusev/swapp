@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import EpisodePreview from '../../../components/Episodes/Episode/EpisodePreview';
 import Spinner from '../../../shared/components/Spinner/Spinner';
+import Toast from '../../../shared/components/Toast/Toast';
+import errorHandler from '../../../shared/resolvers/errorHandler';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
@@ -36,6 +38,7 @@ const EPISODE_QUERY = gql`
 
 const Episode = () => {
   const { episodeId } = useParams();
+
   const { data, loading, error, fetchMore } = useQuery(EPISODE_QUERY, {
     variables: {
       episodeId,
@@ -44,8 +47,7 @@ const Episode = () => {
   });
 
   if (loading) return <Spinner />;
-  if (error)
-    return <div style={{ color: 'white', margin: '5em' }}>{error.message}</div>;
+  if (error) return <Toast>{errorHandler(error)}</Toast>;
 
   const {
     episode,

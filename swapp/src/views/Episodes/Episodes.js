@@ -2,6 +2,7 @@ import React from 'react';
 import EpisodesPreview from '../../components/Episodes/EpisodesPreview';
 import Spinner from '../../shared/components/Spinner/Spinner';
 import Toast from '../../shared/components/Toast/Toast';
+import errorHandler from '../../shared/resolvers/errorHandler';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
@@ -27,7 +28,7 @@ const Episodes = () => {
   const { data, loading, error } = useQuery(ALL_EPISODES);
 
   if (loading) return <Spinner />;
-  if (error) return <Toast>{error.message}</Toast>;
+  if (error) return <Toast>{errorHandler(error)}</Toast>;
 
   const { allEpisodes } = data;
 

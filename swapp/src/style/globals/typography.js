@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import customFont from '../fonts/SfDistantGalaxy-0l3d.ttf';
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('../fonts/SfDistantGalaxy-0l3d.ttf');
-
   :root {
     --font-size-body: 12px;
     --font-size-body-larger: 16px;
@@ -53,6 +52,11 @@ export const GlobalStyles = createGlobalStyle`
   h5 { font-size: var(--font-size-h5, 1.2em); }
   h6 { font-size: var(--font-size-h6, 1em); }
 
+  @font-face {
+    font-family: sf-distant-galaxy;
+    src: url(${customFont});
+  }
+  
   body {
     font-family: 'sf-distant-galaxy';
     background: ${({ theme: { background } }) => background};
