@@ -1,4 +1,0 @@
-[build]
-base = "swapp/"
-publish = "swapp/build"
-command = "cd swapp && npm run ci && npm run build"
