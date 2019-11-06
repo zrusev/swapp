@@ -17,29 +17,6 @@ import { Label } from '../../Episodes/Episode/component/_index';
 import ReactImageFallback from '../../../shared/components/ImageFallback/ImageFallback';
 import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
-const dummy = [
-  {
-    metric: 'cost_in_credits',
-    value: '250',
-  },
-  {
-    metric: 'max_atmosphering_speed',
-    value: '200',
-  },
-  {
-    metric: 'crew',
-    value: '100',
-  },
-  {
-    metric: 'hyperdrive_rating',
-    value: '180',
-  },
-  {
-    metric: 'MGLT',
-    value: '30',
-  },
-];
-
 const StarshipPreview = ({
   starship: {
     id,
@@ -53,6 +30,7 @@ const StarshipPreview = ({
     hyperdriveRating,
     crew,
   },
+  radarFeed,
 }) => (
   <>
     <Header>
@@ -114,7 +92,7 @@ const StarshipPreview = ({
           <h1>Compared to Starship Class Max</h1>
         </Title>
         <RadarWrapper>
-          <Radar data={dummy} />
+          <Radar data={radarFeed} />
         </RadarWrapper>
       </Wrapper>
     </Container>
@@ -134,6 +112,7 @@ StarshipPreview.propTypes = {
     hyperdriveRating: PropTypes.number,
     crew: PropTypes.number,
   }).isRequired,
+  radarFeed: PropTypes.array.isRequired,
 };
 
 export default StarshipPreview;

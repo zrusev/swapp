@@ -1,7 +1,6 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
 
 import { EnhancedThemeProvider } from './style/contexts/themeContext';
 import { GlobalStyles } from './style/globals/typography';

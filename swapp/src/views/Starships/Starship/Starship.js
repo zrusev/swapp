@@ -2,9 +2,19 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import StarshipPreview from '../../../components/Starships/StarshipPreview/StarshipPreview';
 import Spinner from '../../../shared/components/Spinner/Spinner';
+import Toast from '../../../shared/components/Toast/Toast';
+import errorHandler from '../../../shared/resolvers/errorHandler';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
+
+const metrics = [
+  'cost',
+  'maxAtmosphericSpeed',
+  'crew',
+  'hyperdriveRating',
+  'maxMLPerHour',
+];
 
 const STARSHIP_QUERY = gql`
   query Starship($starshipId: ID!) {
@@ -43,9 +53,12 @@ const STATS_QUERY = gql`
 const Starships = () => {
   const { starshipId } = useParams();
 
-  const { data, loading: loadingData, errorData } = useQuery(STARSHIP_QUERY, {
-    variables: { starshipId },
-  });
+  const { data, loading: loadingData, error: errorData } = useQuery(
+    STARSHIP_QUERY,
+    {
+      variables: { starshipId },
+    },
+  );
 
   const { data: stats, loading: loadingStats, error: errorStats } = useQuery(
     STATS_QUERY,
@@ -61,15 +74,51 @@ const Starships = () => {
   );
 
   if (loadingData || loadingStats) return <Spinner />;
-  if (errorData || errorStats)
-    return (
-      <div style={{ color: 'white', margin: '5em' }}>{errorData.message}</div>
-    );
+  if (errorData) return <Toast>{errorHandler(errorData)}</Toast>;
+  if (errorStats) return <Toast>{errorHandler(errorStats)}</Toast>;
 
   const { starship } = data;
-  const { allStarships } = stats;
+  const {
+    allStarships,
+    allStarships: { edges },
+  } = stats;
 
-  return <StarshipPreview starship={starship} allStarships={allStarships} />;
+  const allStarshipsStats = metrics.map(metric => ({
+    [metric]: edges.reduce(
+      (acc, cur) =>
+        isNaN(cur['node'][metric])
+          ? [...acc, 0]
+          : [...acc, +cur['node'][metric]],
+      [],
+    ),
+  }));
+
+  // ToDo: set chart min max value per metric if possible
+  const minMaxValues = allStarshipsStats.map(o => ({
+    [Object.keys(o)[0]]: [
+      Math.min.apply(undefined, Object.values(o)[0]),
+      Math.max.apply(undefined, Object.values(o)[0]),
+    ],
+  }));
+
+  const radarFeed = [
+    metrics.map(metric => ({
+      metric,
+      value:
+        starship[metric] === undefined || starship[metric] === null
+          ? 0
+          : starship[metric],
+    })),
+  ][0];
+
+  return (
+    <StarshipPreview
+      starship={starship}
+      allStarships={allStarships}
+      radarFeed={radarFeed}
+      minMaxValues={minMaxValues}
+    />
+  );
 };
 
 export default Starships;

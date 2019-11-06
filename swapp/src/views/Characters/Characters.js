@@ -1,6 +1,8 @@
 import React from 'react';
 import CharactersPreview from '../../components/Characters/CharactersPreview';
 import Spinner from '../../shared/components/Spinner/Spinner';
+import Toast from '../../shared/components/Toast/Toast';
+import errorHandler from '../../shared/resolvers/errorHandler';
 
 import gql from 'graphql-tag.macro';
 import { useQuery } from '@apollo/react-hooks';
@@ -34,8 +36,7 @@ const Characters = () => {
   });
 
   if (loading) return <Spinner />;
-  if (error)
-    return <div style={{ color: 'white', margin: '5em' }}>{error.message}</div>;
+  if (error) return <Toast>{errorHandler(error)}</Toast>;
 
   const {
     allPeople,

@@ -27,6 +27,7 @@ const Views = () => {
         <Route exact path="/characters/:characterId" component={Character} />
         <Route exact path="/starships/:starshipId" component={Starships} />
         <Route path="/" exact component={() => <Redirect to="/episodes" />} />
+        <Route path="*" exact component={() => <Redirect to="/episodes" />} />
       </Navbar>
     </Switch>
   );
