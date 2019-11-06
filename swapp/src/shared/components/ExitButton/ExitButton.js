@@ -12,7 +12,7 @@ const ExitButton = ({ action }) => (
 );
 
 ExitButton.propTypes = {
-  action: PropTypes.func.isRequired,
+  action: PropTypes.func,
 };
 
 export default ExitButton;
