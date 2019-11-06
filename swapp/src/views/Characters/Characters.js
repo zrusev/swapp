@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CharactersPreview from '../../components/Characters/CharactersPreview';
 import Spinner from '../../shared/components/Spinner/Spinner';
 import Toast from '../../shared/components/Toast/Toast';
@@ -29,6 +29,8 @@ const ALL_CHARACTERS = gql`
 `;
 
 const Characters = () => {
+  const [fetchMoreError, setFetchMoreError] = useState(null);
+
   const { data, loading, error, fetchMore } = useQuery(ALL_CHARACTERS, {
     variables: {
       first: STEP,
@@ -37,6 +39,7 @@ const Characters = () => {
 
   if (loading) return <Spinner />;
   if (error) return <Toast>{errorHandler(error)}</Toast>;
+  if (fetchMoreError) return <Toast>{errorHandler(fetchMoreError)}</Toast>;
 
   const {
     allPeople,
@@ -64,7 +67,7 @@ const Characters = () => {
           },
         };
       },
-    });
+    }).catch(error => setFetchMoreError(error));
   };
 
   return (

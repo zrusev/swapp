@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EpisodePreview from '../../../components/Episodes/Episode/EpisodePreview';
 import Spinner from '../../../shared/components/Spinner/Spinner';
@@ -37,6 +37,7 @@ const EPISODE_QUERY = gql`
 `;
 
 const Episode = () => {
+  const [fetchMoreError, setFetchMoreError] = useState(null);
   const { episodeId } = useParams();
 
   const { data, loading, error, fetchMore } = useQuery(EPISODE_QUERY, {
@@ -48,6 +49,7 @@ const Episode = () => {
 
   if (loading) return <Spinner />;
   if (error) return <Toast>{errorHandler(error)}</Toast>;
+  if (fetchMoreError) return <Toast>{errorHandler(fetchMoreError)}</Toast>;
 
   const {
     episode,
@@ -80,7 +82,7 @@ const Episode = () => {
           },
         };
       },
-    });
+    }).catch(error => setFetchMoreError(error));
   };
 
   return (
