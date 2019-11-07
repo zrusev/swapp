@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { Input } from '../../Login/components/_index';
-
 import LoginPreview from '../../Login/LoginPreview';
 
 describe('login form component', () => {

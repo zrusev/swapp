@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import ExitButton from '../ExitButton';
+import ExitButton from '../../ExitButton/ExitButton';
 
 describe('exit button component', () => {
   const props = {

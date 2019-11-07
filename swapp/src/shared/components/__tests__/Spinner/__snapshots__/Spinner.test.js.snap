@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should mount spinner should contain spinner 1`] = `
+<Component
+  theme={
+    Object {
+      "primaryHeadingFontColor": "yellow",
+    }
+  }
+/>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should Toast component be styled should be mount 1`] = `
+<styled.div>
+  <p>
+    message
+  </p>
+</styled.div>
+`;
