@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should ReactImageFallback be styled should mount 1`] = `
+<ReactImageFallback
+  fallbackImage=""
+  initialImage={null}
+/>
+`;

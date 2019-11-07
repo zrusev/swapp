@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login form component should match snapshot 1`] = `
+<styled.main>
+  <styled.div>
+    <styled.div>
+      <h1>
+        SWAPP
+      </h1>
+    </styled.div>
+    <styled.div>
+      <styled.form
+        onSubmit={[Function]}
+      >
+        <Styled(styled.input)
+          inputType="text"
+          name="email"
+          onChange={[Function]}
+          placeholder="email"
+          required={true}
+          value=""
+        />
+        <Styled(styled.input)
+          inputType="password"
+          name="password"
+          onChange={[Function]}
+          placeholder="password"
+          required={true}
+          value=""
+        />
+        <Styled(styled.button)
+          type="submit"
+        >
+          <b>
+            Login
+          </b>
+        </Styled(styled.button)>
+      </styled.form>
+    </styled.div>
+  </styled.div>
+</styled.main>
+`;
