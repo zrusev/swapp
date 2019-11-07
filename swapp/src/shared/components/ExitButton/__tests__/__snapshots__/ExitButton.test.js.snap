@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`exit button component should match snapshot 1`] = `
-<styled.div>
+<styled.div
+  onClick={[MockFunction]}
+>
   <span>
     <styled.div />
   </span>
