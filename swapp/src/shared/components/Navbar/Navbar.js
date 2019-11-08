@@ -66,7 +66,10 @@ const Navbar = ({
 
 Navbar.propTypes = {
   theme: PropTypes.object.isRequired,
-  children: PropTypes.array.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.array.isRequired,
+    PropTypes.object.isRequired,
+  ]),
   logoutHandler: PropTypes.func.isRequired,
 };
 
