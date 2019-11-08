@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { ExitButton as Button } from '../../../ExitButton/components/ExitButton';
+import { ExitButton as Button } from '../../../ExitButton/components/_index';
 
 describe('should exit button be styled', () => {
   it('should contain styles', () => {

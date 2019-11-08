@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should Navbar be styled should match description 1`] = `
+<Navbar
+  logoutHandler={[MockFunction]}
+  theme={
+    Object {
+      "primaryHeadingFontColor": "",
+    }
+  }
+>
+  <span>
+    Navigation
+  </span>
+</Navbar>
+`;

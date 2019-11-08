@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should ThemeToggle acts as a function container should match description 1`] = `
+<ThemeToggle>
+  <span>
+    Click here
+  </span>
+</ThemeToggle>
+`;
