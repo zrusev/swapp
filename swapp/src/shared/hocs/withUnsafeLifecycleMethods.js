@@ -6,11 +6,11 @@ const UNSAFE_LIFECYCLE_METHOD_NAMES = [
   'componentWillUpdate',
 ];
 
-const withUnsafeLifecycleMethods = WrappedComponent => {
-  const hocComponent = props => {
+const withUnsafeLifecycleMethods = (WrappedComponent) => {
+  const hocComponent = (props) => {
     const { prototype } = WrappedComponent;
 
-    UNSAFE_LIFECYCLE_METHOD_NAMES.forEach(methodName => {
+    UNSAFE_LIFECYCLE_METHOD_NAMES.forEach((methodName) => {
       if (!prototype[methodName]) return;
 
       Object.defineProperty(prototype, `UNSAFE_${methodName}`, {
@@ -25,8 +25,9 @@ const withUnsafeLifecycleMethods = WrappedComponent => {
     return <WrappedComponent {...props} />;
   };
 
-  hocComponent.displayName = `withUnsafeLifecycleMethods(${WrappedComponent.displayName ||
-    ''})`;
+  hocComponent.displayName = `withUnsafeLifecycleMethods(${
+    WrappedComponent.displayName || ''
+  })`;
 
   return hocComponent;
 };

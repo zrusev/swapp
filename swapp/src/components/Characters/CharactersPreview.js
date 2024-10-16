@@ -48,9 +48,9 @@ CharactersPreview.propTypes = {
           id: PropTypes.string.isRequired,
           name: PropTypes.string.isRequired,
           image: PropTypes.string,
-        }).isRequired,
+        }),
       }),
-    ).isRequired,
+    ),
   }),
   loadMoreCharacters: PropTypes.func.isRequired,
 };

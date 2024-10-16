@@ -7,7 +7,7 @@ export const useDarkMode = () => {
   const [theme, setTheme] = useState(THEME_LIGHT);
   const [componentMounted, setComponentMounted] = useState(false);
 
-  const setMode = mode => {
+  const setMode = (mode) => {
     window.localStorage.setItem('theme', mode);
     setTheme(mode);
   };
@@ -22,8 +22,8 @@ export const useDarkMode = () => {
     !localTheme
       ? setMode(THEME_DARK)
       : localTheme
-      ? setTheme(localTheme)
-      : setMode(THEME_LIGHT);
+        ? setTheme(localTheme)
+        : setMode(THEME_LIGHT);
 
     setComponentMounted(true);
   }, []);

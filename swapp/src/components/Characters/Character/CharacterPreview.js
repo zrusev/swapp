@@ -19,7 +19,16 @@ import ReactImageFallback from '../../../shared/components/ImageFallback/ImageFa
 import fallbackImg from '../../Episodes/Episode/assets/anonymous_mask_PNG28.png';
 
 const CharacterPreview = ({
-  character: { id, name, image, height, mass, species, homeworld, starships },
+  character: {
+    id,
+    name,
+    image,
+    height,
+    mass,
+    species,
+    homeworld,
+    starshipConnection,
+  },
 }) => {
   return (
     <>
@@ -64,7 +73,7 @@ const CharacterPreview = ({
           </Title>
           <Line />
           <StarShips>
-            {starships.edges.map(({ node: starship }) => (
+            {starshipConnection.starships.map((starship) => (
               <CharacterPreviewCard
                 key={starship.id}
                 id={starship.id}
@@ -92,7 +101,8 @@ CharacterPreview.propTypes = {
     homeworld: PropTypes.exact({
       name: PropTypes.string.isRequired,
     }),
-    starships: PropTypes.exact({
+    starshipConnection: PropTypes.exact({
+      starships: PropTypes.array.isRequired,
       edges: PropTypes.arrayOf(
         PropTypes.exact({
           node: PropTypes.exact({

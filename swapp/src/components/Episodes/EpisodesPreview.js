@@ -12,7 +12,7 @@ const EpisodesPreview = ({ episodes }) => {
         <Wrapper>
           {episodes.edges.map(({ node: episode }) => (
             <EpisodesPreviewCard
-              key={episode.episodeId}
+              key={episode.episodeID}
               id={episode.id}
               episodeId={episode.episodeId}
               director={episode.director}

@@ -22,29 +22,32 @@ const STARSHIP_QUERY = gql`
       id
       name
       model
-      image
       starshipClass
-      cost
-      maxAtmosphericSpeed
-      maxMLPerHour
+      costInCredits
+      maxAtmospheringSpeed
+      MGLT
       hyperdriveRating
       crew
+      starshipClass
     }
   }
 `;
 
 const STATS_QUERY = gql`
-  query Stats($starshipClass: String) {
-    allStarships(first: 100, filter: { starshipClass: $starshipClass }) {
+  query Stats {
+    allStarships(first: 100) {
       totalCount
       edges {
         node {
-          cost
-          maxAtmosphericSpeed
+          costInCredits
+          maxAtmospheringSpeed
           crew
           hyperdriveRating
-          maxMLPerHour
+          MGLT
         }
+      }
+      starships {
+        starshipClass
       }
     }
   }
@@ -53,25 +56,27 @@ const STATS_QUERY = gql`
 const Starships = () => {
   const { starshipId } = useParams();
 
-  const { data, loading: loadingData, error: errorData } = useQuery(
-    STARSHIP_QUERY,
-    {
-      variables: { starshipId },
-    },
-  );
+  const {
+    data,
+    loading: loadingData,
+    error: errorData,
+  } = useQuery(STARSHIP_QUERY, {
+    variables: { starshipId },
+  });
 
-  const { data: stats, loading: loadingStats, error: errorStats } = useQuery(
-    STATS_QUERY,
-    {
-      skip: !data || !data.starship || !data.starship.starshipClass,
-      variables: {
-        starshipClass:
-          data && data.starship && data.starship.starshipClass
-            ? data.starship.starshipClass
-            : null,
-      },
+  const {
+    data: stats,
+    loading: loadingStats,
+    error: errorStats,
+  } = useQuery(STATS_QUERY, {
+    skip: !data || !data.starship || !data.starship.starshipClass,
+    variables: {
+      starshipClass:
+        data && data.starship && data.starship.starshipClass
+          ? data.starship.starshipClass
+          : null,
     },
-  );
+  });
 
   if (loadingData || loadingStats) return <Spinner />;
   if (errorData) return <Toast>{errorHandler(errorData)}</Toast>;
@@ -83,7 +88,7 @@ const Starships = () => {
     allStarships: { edges },
   } = stats;
 
-  const allStarshipsStats = metrics.map(metric => ({
+  const allStarshipsStats = metrics.map((metric) => ({
     [metric]: edges.reduce(
       (acc, cur) =>
         isNaN(cur['node'][metric])
@@ -94,7 +99,7 @@ const Starships = () => {
   }));
 
   // ToDo: set chart min max value per metric if possible
-  const minMaxValues = allStarshipsStats.map(o => ({
+  const minMaxValues = allStarshipsStats.map((o) => ({
     [Object.keys(o)[0]]: [
       Math.min.apply(undefined, Object.values(o)[0]),
       Math.max.apply(undefined, Object.values(o)[0]),
@@ -102,7 +107,7 @@ const Starships = () => {
   }));
 
   const radarFeed = [
-    metrics.map(metric => ({
+    metrics.map((metric) => ({
       metric,
       value:
         starship[metric] === undefined || starship[metric] === null

@@ -29,12 +29,7 @@ describe('login form component', () => {
       },
     });
 
-    expect(
-      wrapper
-        .find(Input)
-        .at(0)
-        .prop('value'),
-    ).toEqual('demo@st6.io');
+    expect(wrapper.find(Input).at(0).prop('value')).toEqual('demo@st6.io');
   });
 
   it('should change password value when typed', () => {
@@ -48,11 +43,6 @@ describe('login form component', () => {
       },
     });
 
-    expect(
-      wrapper
-        .find(Input)
-        .at(1)
-        .prop('value'),
-    ).toEqual('password');
+    expect(wrapper.find(Input).at(1).prop('value')).toEqual('password');
   });
 });

@@ -7,7 +7,7 @@ import { typeDefs } from './local';
 import authLink from './auth';
 import errorHandler from '../../shared/resolvers/errorHandler';
 
-const errorLink = onError(error => console.log(errorHandler(error)));
+const errorLink = onError((error) => console.log(errorHandler(error)));
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,

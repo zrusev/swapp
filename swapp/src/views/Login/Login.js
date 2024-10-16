@@ -6,7 +6,7 @@ import gql from 'graphql-tag.macro';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
 
 const LOG_IN = gql`
-  mutation($email: String!, $password: String!) {
+  mutation ($email: String!, $password: String!) {
     signIn(email: $email, password: $password) {
       token
     }
@@ -17,6 +17,14 @@ const Login = () => {
   const [error, setError] = useState(null);
   const client = useApolloClient();
 
+  const fakeLogin = () => {
+    setTimeout(() => {
+      localStorage.setItem('token', 'fake token');
+      client.writeData({ data: { authenticated: true } });
+    }, 500);
+  };
+
+  /* eslint-disable-next-line no-unused-vars */
   const [login, { loading }] = useMutation(LOG_IN, {
     onCompleted: ({ signIn: { token } }) => {
       localStorage.setItem('token', token);
@@ -35,7 +43,7 @@ const Login = () => {
 
   if (loading) return <Spinner />;
 
-  return <LoginPreview login={login} error={error} />;
+  return <LoginPreview login={fakeLogin} error={error} />;
 };
 
 export default Login;

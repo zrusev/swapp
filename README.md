@@ -2,9 +2,9 @@
 
 # SWAPP (Star Wars App)
 
-[SWAPP](https://swapp.zrusev.me/)
+DEMO: [SWAPP](https://swapp.zrusev.me/)
 
-#### TASK: 
+#### TASK:
 - Create open-source React Web Application that retrieves Star Wars data from GraphQL server.
 - Each piece of functionality to implement should be introduced via Pull/Merge Requests which have successfully passed a CI build.
 - CI must be run on each Pull Request.
@@ -12,7 +12,8 @@
 - Code coverage should be as high as you can make it.
 
 #### Notes:
-- Test credentials: 
-  > Email: demo@st6.io 
+- Test credentials:
+  > Email: demo@st6.io
   > Password: demo1234
-  >> (You may need to add a security exception to your browser before querying to the [GraphQL server](https://softuni-swapp-212366186.eu-west-1.elb.amazonaws.com/graphql/))
+  >
+  > 2024-10-16: The GraphQL server has been updated to utilize [swapi-graphql](https://github.com/graphql/swapi-graphql) at https://swapi-graphql.netlify.app/.netlify/functions/index

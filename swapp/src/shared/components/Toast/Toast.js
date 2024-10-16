@@ -36,7 +36,11 @@ const Toast = ({ children }) => (
 );
 
 Toast.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string]),
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.string,
+  ]),
 };
 
 export default Toast;

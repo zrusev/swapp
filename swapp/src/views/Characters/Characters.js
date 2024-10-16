@@ -21,7 +21,6 @@ const ALL_CHARACTERS = gql`
         node {
           id
           name
-          image
         }
       }
     }
@@ -67,7 +66,7 @@ const Characters = () => {
           },
         };
       },
-    }).catch(error => setFetchMoreError(error));
+    }).catch((error) => setFetchMoreError(error));
   };
 
   return (

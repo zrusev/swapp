@@ -15,14 +15,18 @@ import { MoreItems } from '../components/_index';
 
 import EpisodePreviewCard from './EpisodePreviewCard';
 
+import ReactImageFallback from '../../../shared/components/ImageFallback/ImageFallback';
+import fallbackImg from './assets/anonymous_mask_PNG28.png';
+
 const EpisodePreview = ({
   episode: {
-    episodeId,
+    episodeID,
     director,
     image,
     title,
     openingCrawl,
     releaseDate,
+    characterConnection,
     people,
   },
   hasNextPage,
@@ -32,7 +36,12 @@ const EpisodePreview = ({
     <Container>
       <Header>
         <Media>
-          <img src={image} alt="" />
+          <ReactImageFallback
+            src={image}
+            fallbackImage={fallbackImg}
+            initialImage={fallbackImg}
+            alt={`${title}_image`}
+          />
         </Media>
         <Title>
           <h1>Star Wars: Episode</h1>
@@ -52,7 +61,7 @@ const EpisodePreview = ({
       </Summary>
       <PeopleWrapper>
         <People>
-          {people.edges.map(({ node: person }) => (
+          {characterConnection.edges.map(({ node: person }) => (
             <EpisodePreviewCard
               key={person.id}
               id={person.id}
@@ -75,13 +84,13 @@ const EpisodePreview = ({
 
 EpisodePreview.propTypes = {
   episode: PropTypes.exact({
-    episodeId: PropTypes.number,
+    episodeID: PropTypes.number,
     image: PropTypes.string,
     director: PropTypes.string,
     title: PropTypes.string,
     openingCrawl: PropTypes.string,
     releaseDate: PropTypes.string,
-    people: PropTypes.exact({
+    characterConnection: PropTypes.exact({
       pageInfo: PropTypes.exact({
         hasNextPage: PropTypes.bool.isRequired,
         endCursor: PropTypes.string,
@@ -95,7 +104,8 @@ EpisodePreview.propTypes = {
           }).isRequired,
         }),
       ).isRequired,
-    }).isRequired,
+      people: PropTypes.array,
+    }),
   }).isRequired,
   hasNextPage: PropTypes.bool.isRequired,
   loadMoreCharacters: PropTypes.func.isRequired,

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-const useSignInForm = login => {
+const useSignInForm = (login) => {
   const [inputs, setInputs] = useState({ email: '', password: '' });
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
     }
@@ -16,12 +16,20 @@ const useSignInForm = login => {
     });
   };
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     event.persist();
 
-    setInputs(inputs => ({
+    setInputs((inputs) => ({
       ...inputs,
       [event.target.name]: event.target.value,
+    }));
+  };
+
+  const overwriteCredentials = ({ email, password }) => {
+    setInputs((inputs) => ({
+      ...inputs,
+      email,
+      password,
     }));
   };
 
@@ -29,6 +37,7 @@ const useSignInForm = login => {
     handleSubmit,
     handleInputChange,
     inputs,
+    overwriteCredentials,
   };
 };
 

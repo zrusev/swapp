@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import logo from '../assets/cloud-computing.png';
 
-const InputField = styled.input.attrs(props => ({
+const InputField = styled.input.attrs((props) => ({
   type: props.inputType,
 }))`
   max-width: 100%;

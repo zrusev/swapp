@@ -9,12 +9,11 @@ import { useQuery } from '@apollo/react-hooks';
 
 const ALL_EPISODES = gql`
   query AllEpisodes {
-    allEpisodes(first: 100) {
+    allFilms(first: 100) {
       edges {
         node {
           id
-          episodeId
-          image
+          episodeID
           title
           openingCrawl
           releaseDate
@@ -30,7 +29,7 @@ const Episodes = () => {
   if (loading) return <Spinner />;
   if (error) return <Toast>{errorHandler(error)}</Toast>;
 
-  const { allEpisodes } = data;
+  const { allFilms: allEpisodes } = data;
 
   return <EpisodesPreview episodes={allEpisodes} />;
 };

@@ -13,7 +13,6 @@ const CHARACTER_QUERY = gql`
     person(id: $characterId) {
       id
       name
-      image
       height
       mass
       species {
@@ -22,12 +21,15 @@ const CHARACTER_QUERY = gql`
       homeworld {
         name
       }
-      starships(first: 100) {
+      starshipConnection {
+        starships {
+          id
+          name
+        }
         edges {
           node {
             id
             name
-            image
           }
         }
       }
@@ -39,9 +41,8 @@ const Character = () => {
   const { characterId } = useParams();
 
   const { data, loading, error } = useQuery(CHARACTER_QUERY, {
-      variables: { characterId },
-    },
-  );
+    variables: { characterId },
+  });
 
   if (loading) return <Spinner />;
   if (error) return <Toast>{errorHandler(error)}</Toast>;

@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
 import { ResponsiveRadar } from '@nivo/radar';
 
-const RadarChart = ({ theme: { primaryHeadingFontColor }, data }) => {
+const RadarChart = ({
+  theme: { primaryHeadingFontColor, radarBackgroud },
+  data,
+}) => {
   const [metrics, setMetrics] = useState([]);
 
   useEffect(() => {
@@ -24,6 +27,7 @@ const RadarChart = ({ theme: { primaryHeadingFontColor }, data }) => {
     gridLabel: {
       color: '#000',
     },
+    background: radarBackgroud,
   };
 
   return (
@@ -48,7 +52,7 @@ const RadarChart = ({ theme: { primaryHeadingFontColor }, data }) => {
       dotLabel="value"
       dotLabelYOffset={-12}
       colors={primaryHeadingFontColor}
-      fillOpacity={0.25}
+      fillOpacity={0.9}
       blendMode="multiply"
       animate={true}
       motionStiffness={90}

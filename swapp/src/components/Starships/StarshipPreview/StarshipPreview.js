@@ -24,9 +24,9 @@ const StarshipPreview = ({
     model,
     image,
     starshipClass,
-    cost,
-    maxAtmosphericSpeed,
-    maxMLPerHour,
+    costInCredits,
+    maxAtmospheringSpeed,
+    MGLT,
     hyperdriveRating,
     crew,
   },
@@ -58,7 +58,10 @@ const StarshipPreview = ({
           <Label>
             Cost:&nbsp;
             <span>
-              {cost === undefined || cost === null ? 0 : cost} credits
+              {costInCredits === undefined || costInCredits === null
+                ? 0
+                : costInCredits}{' '}
+              credits
             </span>
           </Label>
           {crew && (
@@ -67,16 +70,16 @@ const StarshipPreview = ({
               <span>{crew}</span>
             </Label>
           )}
-          {maxAtmosphericSpeed && (
+          {maxAtmospheringSpeed && (
             <Label>
               Max Atmospheric Speed:&nbsp;
-              <span>{maxAtmosphericSpeed}</span>
+              <span>{maxAtmospheringSpeed}</span>
             </Label>
           )}
-          {maxMLPerHour && (
+          {MGLT && (
             <Label>
               Max ML per Hour:&nbsp;
-              <span>{maxMLPerHour}</span>
+              <span>{MGLT}</span>
             </Label>
           )}
           {hyperdriveRating && (
@@ -106,11 +109,11 @@ StarshipPreview.propTypes = {
     model: PropTypes.string,
     image: PropTypes.string,
     starshipClass: PropTypes.string,
-    cost: PropTypes.number,
-    maxAtmosphericSpeed: PropTypes.number,
-    maxMLPerHour: PropTypes.number,
+    costInCredits: PropTypes.number,
+    maxAtmospheringSpeed: PropTypes.number,
+    MGLT: PropTypes.number,
     hyperdriveRating: PropTypes.number,
-    crew: PropTypes.number,
+    crew: PropTypes.string,
   }).isRequired,
   radarFeed: PropTypes.array.isRequired,
 };

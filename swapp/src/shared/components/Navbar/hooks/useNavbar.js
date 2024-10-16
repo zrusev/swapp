@@ -13,7 +13,7 @@ const useNavbar = () => {
     return () => mediaQuery.removeListener(handleMediaQueryChange);
   }, []);
 
-  const handleMediaQueryChange = mediaQuery =>
+  const handleMediaQueryChange = (mediaQuery) =>
     mediaQuery.matches ? setIsSmallScreen(true) : setIsSmallScreen(false);
 
   const toggleNav = () => setNavVisibility(!isNavVisible);

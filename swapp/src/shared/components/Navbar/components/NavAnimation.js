@@ -13,7 +13,9 @@ export const NavAnimation = styled.div`
   &.NavAnimation-enter-active {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 350ms, transform 350ms;
+    transition:
+      opacity 350ms,
+      transform 350ms;
   }
 
   &.NavAnimation-exit {
@@ -23,6 +25,8 @@ export const NavAnimation = styled.div`
   &.NavAnimation-exit-active {
     opacity: 0;
     transform: scale(0.5);
-    transition: opacity 350ms, transform 350ms;
+    transition:
+      opacity 350ms,
+      transform 350ms;
   }
 `;

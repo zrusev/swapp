@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -15,7 +15,20 @@ import {
 import useSignInForm from './hooks/useSignInForm';
 
 const LoginPreview = ({ login, error }) => {
-  const { inputs, handleInputChange, handleSubmit } = useSignInForm(login);
+  const { inputs, handleInputChange, handleSubmit, overwriteCredentials } =
+    useSignInForm(login);
+
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      overwriteCredentials({
+        email: process.env.REACT_APP_DEMO_USER,
+        password: process.env.REACT_APP_DEMO_PASSWORD,
+      });
+
+      return () => clearTimeout();
+    }, 1000);
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  }, []);
 
   return (
     <Wrapper>

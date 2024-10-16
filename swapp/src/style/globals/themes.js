@@ -29,6 +29,7 @@ export const lightTheme = {
   secondaryHeadingFontColor: '#ABB1BA',
   // Line Color
   lineColor: '#ABB1BA',
+  radarBackgroud: 'white',
 };
 
 export const darkTheme = {
@@ -62,4 +63,5 @@ export const darkTheme = {
   secondaryHeadingFontColor: '#4BD5EE',
   // Line Color
   lineColor: '#000',
+  radarBackgroud: 'gray',
 };

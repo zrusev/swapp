@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import { Card, Summary, Title, Meta, Media } from './components/_index';
 
+import ReactImageFallback from '../../shared/components/ImageFallback/ImageFallback';
+import fallbackImg from '../Episodes/Episode/assets/anonymous_mask_PNG28.png';
+
 const EpisodesPreviewCard = ({
   id,
   image,
@@ -12,7 +15,12 @@ const EpisodesPreviewCard = ({
 }) => (
   <Card to={`/episodes/${id}`}>
     <Media>
-      <img src={image} alt="episode_image" />
+      <ReactImageFallback
+        src={image}
+        fallbackImage={fallbackImg}
+        initialImage={fallbackImg}
+        alt={`${title}_image`}
+      />
     </Media>
     <Title>
       <h3>{title}</h3>

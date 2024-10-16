@@ -11,25 +11,27 @@ import { useQuery } from '@apollo/react-hooks';
 const STEP = 5;
 
 const EPISODE_QUERY = gql`
-  query Episode($episodeId: ID!, $first: Int!, $after: String) {
-    episode(id: $episodeId) {
-      episodeId
+  query Episode($episodeId: ID!) {
+    film(id: $episodeId) {
+      episodeID
       director
-      image
       title
       openingCrawl
       releaseDate
-      people(first: $first, after: $after) {
-        pageInfo {
-          hasNextPage
-          endCursor
-        }
+      characterConnection {
         edges {
           node {
             id
             name
-            image
           }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+        people: characters {
+          id
+          name
         }
       }
     }
@@ -43,7 +45,6 @@ const Episode = () => {
   const { data, loading, error, fetchMore } = useQuery(EPISODE_QUERY, {
     variables: {
       episodeId,
-      first: STEP,
     },
   });
 
@@ -52,10 +53,12 @@ const Episode = () => {
   if (fetchMoreError) return <Toast>{errorHandler(fetchMoreError)}</Toast>;
 
   const {
-    episode,
-    episode: {
-      people: {
+    film: episode,
+    film: {
+      characterConnection: {
         pageInfo: { hasNextPage, endCursor },
+        /* eslint-disable-next-line no-empty-pattern */
+        people: [],
       },
     },
   } = data;
@@ -74,15 +77,15 @@ const Episode = () => {
         return {
           episode: {
             ...episode,
+            edges: [...prev.episode.edges, ...episode.edges],
             people: {
               ...prev.episode.people,
               ...episode.people,
-              edges: [...prev.episode.people.edges, ...episode.people.edges],
             },
           },
         };
       },
-    }).catch(error => setFetchMoreError(error));
+    }).catch((error) => setFetchMoreError(error));
   };
 
   return (
